@@ -9,6 +9,7 @@ int main(void) {
     scanf("%f", &WRate);
     float distance = abs(oil * WRate);
 
+
     printf("The distance is %.2f km\n", distance);
     if (distance < 100) {
         printf("City A");
