@@ -1,14 +1,15 @@
 # include <stdio.h>
-# include <math.h>
 
 int main(void) {
-    float oil = 0.00f, WRate = 0.00f;
+    float oil, WRate, distance;
     printf("Enter the oil capacity (liter): ");
     scanf("%f", &oil);
     printf("Enter the oil consumption rate (km/liter): ");
     scanf("%f", &WRate);
-    float distance = abs(oil * WRate);
-
+    distance = oil * WRate;
+    if (distance < 0) {
+        distance = distance * -1;
+    }
 
     printf("The distance is %.2f km\n", distance);
     if (distance < 100) {
