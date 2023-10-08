@@ -11,7 +11,7 @@ int main(void) {
     if (num % 10 == 7 || num >= 70 && num <= 79) {
         printf("BUZZ");
     }
-    else if (num / 7 == 0){
+    else if (num % 7 == 0){
         printf("BUZZ-BUZZ");
     }
     else {
