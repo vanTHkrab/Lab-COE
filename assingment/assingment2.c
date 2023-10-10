@@ -1,11 +1,9 @@
 # include <stdio.h>
 
 int main(void) {
-    int num;
-    printf("Enter the number (1-100): ");
-    scanf("%d", &num);
-    while (num < 1 || num > 100) {
-        printf("Enter the number (1-100): ");
+    int num = 0;
+    while (num < 1 || num > 99) {
+        printf("Enter the number (1-99): ");
         scanf("%d", &num);
     }
     if (num % 10 == 7 || num >= 70 && num <= 79) {
