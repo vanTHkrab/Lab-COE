@@ -8,17 +8,16 @@ int main(void) {
     for (int i = num ; i > 0; i /= 10) {
         if (num % 10 == 1) {
             sum += t;
-            num /= 10;
-            t *= 2;
         }
         else if (num % 10 == 0) {
-            num /= 10;
-            t *= 2;
+            sum = sum;
         }
         else {
             printf("Invalid input\n");
             return 0;
         }
+        num /= 10;
+        t *= 2;
     }
     printf("The equivalent Decimal Number is : %d\n", sum);
 }
