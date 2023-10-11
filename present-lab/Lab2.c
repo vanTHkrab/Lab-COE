@@ -1,6 +1,7 @@
 # include <stdio.h>
 # include <math.h>
 
+
 int main(void) {
     int num;
     printf("Input the binary number: ");
@@ -23,4 +24,3 @@ int main(void) {
     }
     printf("This Binary Code \"%d\" And The equivalent Decimal Number is : %d\n", binary, sum);
 }
-// kuy van
