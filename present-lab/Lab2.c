@@ -23,3 +23,4 @@ int main(void) {
     }
     printf("This Binary Code \"%d\" And The equivalent Decimal Number is : %d\n", binary, sum);
 }
+// kuy
