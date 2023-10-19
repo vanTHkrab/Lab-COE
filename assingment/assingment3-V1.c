@@ -4,6 +4,7 @@ int main(void)
 {
     int count = 0, a[100000], e = 0, o = 0;
     do {
+        printf("Enter number : ");
         scanf("%d", &a[count]);
         count++;
     } while (getchar() != '\n');
