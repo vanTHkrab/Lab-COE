@@ -7,9 +7,9 @@ int main(void) {
         scanf("%d", &a[count]);
         count++;
     } while (getchar() != '\n');
-    int c[count];
     a[count];
 //-----------------------------------------------------------------------
+    int c[count];
     for (int i = 0; i < count; i++){
         c[i] = a[i];
     }
