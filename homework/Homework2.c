@@ -38,6 +38,10 @@ int main(void) {
             d[z] = a[i];
         }
     }
+    if (z == 0){
+        printf("All number are same\n");
+        return 0;
+    }
 //-----------------------------------------------------------------------
 // count number of each number
     int total = 0, time[z];
