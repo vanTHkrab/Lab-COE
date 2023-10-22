@@ -28,7 +28,7 @@ int main(void) {
         }
     }
 //-----------------------------------------------------------------------
-// remove duplicate(ตัวเลขซ้ำ)
+// remove duplicate
     int z = 0;
     int d[count];
     for (int i = 1; i < count; i++){
