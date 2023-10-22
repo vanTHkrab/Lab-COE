@@ -1,6 +1,7 @@
 # include <stdio.h>
 
 int main(void) {
+// input
     int count = 0, a[100000];
     printf("Enter number : ");
     do {
@@ -9,11 +10,13 @@ int main(void) {
     } while (getchar() != '\n');
     a[count];
 //-----------------------------------------------------------------------
+// copy array
     int c[count];
     for (int i = 0; i < count; i++){
         c[i] = a[i];
     }
 //-----------------------------------------------------------------------
+// lower to higher
     int b;
     for (int i = 0; i < count; i++){
         for (int j = i + 1; j < count; j++){
@@ -25,6 +28,7 @@ int main(void) {
         }
     }
 //-----------------------------------------------------------------------
+// remove duplicate(ตัวเลขซ้ำ)
     int z = 0;
     int d[count];
     for (int i = 1; i < count; i++){
@@ -35,17 +39,19 @@ int main(void) {
         }
     }
 //-----------------------------------------------------------------------
-    int t = 0, time[z];
+// count number of each number
+    int total = 0, time[z];
     for(int i = 0; i < z + 1; i++){
         for (int j = 0; j < count; j++){
             if (d[i] == a[j]){
-                t++;
+                total++;
             }
         }
-    time[i] = t;
-    t = 0;
+    time[i] = total;
+    total = 0;
     }
 //-----------------------------------------------------------------------
+// print
     for (int i = 0; i < z + 1; i++){
         printf("%d occurs %d time at ", d[i], time[i]);
         for (int j = 0; j < count; j++){
