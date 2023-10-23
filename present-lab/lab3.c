@@ -1,23 +1,24 @@
 # include <stdio.h>
 
 int main(void) {
-// input
-    int count = 0, a[100000];
+    int count = 0;
+    float a[100000];
     printf("Enter number : ");
     do {
-        scanf("%d", &a[count]);
+        scanf("%f", &a[count]);
         count++;
     } while (getchar() != '\n');
     a[count];
 //-----------------------------------------------------------------------
-// copy array
-    int c[count];
+    float totalavg = 0;
     for (int i = 0; i < count; i++){
-        c[i] = a[i];
+        totalavg += a[i];
     }
+    float avg = totalavg / count;
+    printf("Average = %.2f\n", avg);
 //-----------------------------------------------------------------------
 // lower to higher
-    int b;
+    float b;
     for (int i = 0; i < count; i++){
         for (int j = i + 1; j < count; j++){
             if (a[i] > a[j]){
@@ -28,7 +29,17 @@ int main(void) {
         }
     }
 //-----------------------------------------------------------------------
-// remove duplicate
+    for (int i = 0; i < 1; i++){
+        float mean;
+        if (count % 2 == 0){
+            mean = (a[count / 2] + a[(count / 2) - 1]) / 2;
+        }
+        else {
+            mean = a[count / 2];
+        }
+        printf("Median = %.2f\n", mean);
+    }
+//-----------------------------------------------------------------------
     int z = 0, d[count];
     for (int i = 1; i < count; i++){
         d[0] = a[0];
@@ -54,18 +65,18 @@ int main(void) {
     total = 0;
     }
 //-----------------------------------------------------------------------
-// print
+    float mode = 0;
     for (int i = 0; i < z + 1; i++){
-        printf("%d occurs %d time at ", d[i], time[i]);
-        for (int j = 0; j < count; j++){
-            if (d[i] == c[j]){
-                printf("%d", j + 1);
-                if (time[i] > 1 ){
-                    printf(", ");
-                    time[i]--;
-                }
-            }
+        if (time[i] > mode){
+            mode = time[i];
         }
-    printf("\n");
     }
+    printf("Mode = %.2f\n", mode);
+
+
+
+
+
+
+
 }
