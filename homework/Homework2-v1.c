@@ -31,7 +31,7 @@ int main(void) {
 // remove duplicate
     int z = 0, d[count];
     for (int i = 1; i < count; i++){
-        d[01] = a[0];
+        d[0] = a[0];
         if (a[i-1] != a[i]){
             z++;
             d[z] = a[i];

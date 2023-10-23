@@ -11,14 +11,15 @@ int main(void) {
     } while (getchar() != '\n');
     a[count];
 //-----------------------------------------------------------------------
+//  1. Mean
     float totalavg = 0;
     for (int i = 0; i < count; i++){
         totalavg += a[i];
     }
     float avg = totalavg / count;
-    printf("Average = %.2f\n", avg);
+    printf("Average: %.2f\n", avg);
 //-----------------------------------------------------------------------
-// lower to higher
+//  1.1) lower to higher
     float b;
     for (int i = 0; i < count; i++){
         for (int j = i + 1; j < count; j++){
@@ -29,18 +30,34 @@ int main(void) {
             }
         }
     }
+
 //-----------------------------------------------------------------------
+//  1.2) Max-Min
+    float min = a[0], max = a[count];
+    for (int i = 0; i < count; i++) {
+        if (a[i] < min) {
+            min = a[i];
+        }
+        else if (a[i] > max){
+            max = a[i];
+        }
+    }
+    printf("Max: %.2f, Min: %.2f\n", max, min);
+//-----------------------------------------------------------------------
+//  2. median
     for (int i = 0; i < 1; i++){
-        float mean;
+        float median;
         if (count % 2 == 0){
-            mean = (a[count / 2] + a[(count / 2) - 1]) / 2;
+            median = (a[count / 2] + a[(count / 2) - 1]) / 2;
         }
         else {
-            mean = a[count / 2];
+            median = a[count / 2];
         }
-        printf("Median = %.2f\n", mean);
+        printf("Median: %.2f\n", median);
     }
 //-----------------------------------------------------------------------
+//  3. Mode
+//  3.1) remove duplicate
     int z = 0, d[count];
     for (int i = 1; i < count; i++){
         d[0] = a[0];
@@ -54,7 +71,7 @@ int main(void) {
         return 0;
     }
 //-----------------------------------------------------------------------
-// count number of each number
+//  3.2) count number of each number
     int total = 0, time[z];
     for(int i = 0; i < z + 1; i++){
         for (int j = 0; j < count; j++){
@@ -64,20 +81,12 @@ int main(void) {
         }
     time[i] = total;
     total = 0;
+    printf("%d ", time[i]);
     }
 //-----------------------------------------------------------------------
-    float mode = 0;
-    for (int i = 0; i < z + 1; i++){
-        if (time[i] > mode){
-            mode = time[i];
-        }
+//  3.3)
+    int mode[count];
+    for (int i = 0; i < z; i++){
+
     }
-    printf("Mode = %.2f\n", mode);
-
-
-
-
-
-
-
 }
