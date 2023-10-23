@@ -19,7 +19,7 @@ int main(void) {
             max = a[i];
         }
     }
-    printf("%d %d\n", max ,min);
+    // printf("%d %d\n", max ,min); 
 //-----------------------------------------------------------------------
     int time = 0;
     for (min, max; min <= max;min++){
