@@ -98,11 +98,12 @@ int main(void) {
         }
     }
     // printf("%d\n", maxtime);
-    float mode[z];
+    float mode[z]; int mt = 0;
     for (int i = 0; i < z + 1; i++){
         if (time[i] == maxtime){
-            mode[i] = d[i];
+            mode[mt] = d[i];
             tmode++;
+            mt++;
         }
     }
     // printf("%d %d %d\n", mode[0], d[0] , tmode);
