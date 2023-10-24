@@ -71,5 +71,5 @@ int main(){
     printf("\nMax:\nDifficulty: %.2f  Course: %.2f  Teacher: %.2f\n", maxsl, maxtp, maxsp);
     printf("\nMin:\nDifficulty: %.2f  Course: %.2f  Teacher: %.2f\n", minsl, mintp, minsp);
     printf("\nAverange:\nDifficulty: %.2f  Course: %.2f  Teacher: %.2f\n", sumsl / i, sumsp / i, sumtp / i); 
-    printf("Test 2");
+    // printf("Test 2");
 }
