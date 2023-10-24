@@ -1,4 +1,6 @@
 # include <stdio.h>
+# include <math.h>
+
 // ค่ากลึ่งกลางพิสัย, ส่วยเบี่ยนเบนมาตรฐาน, ส่วนเบี่ยงเบนควอร์ไทล์, ความแปรปรวน, ส่วนเบี่ยงเบนเฉลี่ย, สัมประสิทธิพิสัย, 
 // มัธยฐาน, ฐานนนิยม, ค่าเฉลี่ย, น้อยสุด-มากสุด
 int main(void) {
@@ -44,6 +46,10 @@ int main(void) {
     }
     printf("Max: %.2f, Min: %.2f\n", max, min);
 //-----------------------------------------------------------------------
+//  range
+    float range = max - min;
+    printf("Range: %.2f\n", range);
+//-----------------------------------------------------------------------
 //  2. median
     for (int i = 0; i < 1; i++){
         float median;
@@ -66,10 +72,6 @@ int main(void) {
             d[z] = a[i];
         }
     }
-    if (z == 0){
-        printf("All number are same\n");
-        return 0;
-    }
 //-----------------------------------------------------------------------
 //  3.2) count number of each number
     int total = 0, time[z];
@@ -81,12 +83,45 @@ int main(void) {
         }
     time[i] = total;
     total = 0;
-    printf("%d ", time[i]);
+    // printf("%d\n", time[i]);
+    }
+    if (z == 0) {
+        time[0] = count;
+        d[0] = a[0];
     }
 //-----------------------------------------------------------------------
-//  3.3)
-    int mode[count];
+//  3.3) 
+    int maxtime = time[0], tmode = 0;
     for (int i = 0; i < z; i++){
-
+        if (time[i] < time[i + 1]){
+            maxtime = time[i + 1];
+        }
     }
+    // printf("%d\n", maxtime);
+    float mode[z];
+    for (int i = 0; i < z + 1; i++){
+        if (time[i] == maxtime){
+            mode[i] = d[i];
+            tmode++;
+        }
+    }
+    // printf("%d %d %d\n", mode[0], d[0] , tmode);
+    mode[tmode];
+    // printf("%d %d\n", tmode, z / 2 + 1);
+    if (tmode <= z / 2 + 1) {
+        printf("Mode: ");
+        for (int j = 0; j < tmode; j++){
+            printf("%.2f ", mode[j]);
+            if (tmode < 1){
+                printf(", ");
+                tmode--;
+            }
+        }
+    }
+    else {
+        printf("No mode\n");
+    }
+//-----------------------------------------------------------------------
+// Q.D. (q3-q1)/2
+    float q1, q3, QD;
 }
