@@ -1,37 +1,75 @@
 # include <stdio.h>
+# include <string.h>
+# include <stdlib.h>
 // wednesday afternoon
 typedef struct data_subject subjeat;
 struct data_subjeat{
-    char namesubject[22], commentsubject[200];
+    char name[10000], commentsubject[20000];
     float teacherpoint, subjeatpoint, subjectlevel;
 };
 
 typedef struct info_format_personal personalstudent;
 struct info_format_personal {
-    char dataname[10000];
+    char nameofsubject[22];
     struct data_subjeat subjeat;
 };
 
 int main(){
     personalstudent ps;
-    int i, name[100], count = 0;
-    printf("Enter \" n \" To stop\n");
+    int i = 0, count = 0;
+    float minsl = 5, minsp = 5, mintp = 5;
+    float maxsl = 0, maxsp = 0, maxtp = 0;
+    float sumsl = 0, sumsp = 0, sumtp = 0;
+    printf("Subject: ");
+    scanf("%s", &ps.nameofsubject);
+
     while(1){
+        printf("Enter \" ! \"In Name To Stop\n");
         printf("Name: ");
-        scanf("%s", &name[count++]);
-        if (name[count - 1] == 'n'){
+        scanf("%s", &ps.subjeat.name[count]);
+        if (ps.subjeat.name[count] == '!'){
             break;
         }
-        printf("Subject: ");
-        scanf("%s", &ps.subjeat.namesubject);
         do{
-        printf("Difficulty of %s ('0'is very easy - '5'is very hard): ", ps.subjeat.namesubject);
+        printf("Difficulty course of %s (5 - 0) : ", ps.nameofsubject);
         scanf("%f", &ps.subjeat.subjectlevel);
         }while (ps.subjeat.subjectlevel > 5 || ps.subjeat.subjectlevel < 0);
+        if (maxsl < ps.subjeat.subjectlevel){
+            maxsl = ps.subjeat.subjectlevel;
+        }
+        if (minsl > ps.subjeat.subjectlevel){
+            minsl = ps.subjeat.subjectlevel;
+        }
+        sumsl += ps.subjeat.subjectlevel;
 
-        printf("LOP of(0-5) %s: ", ps.subjeat.namesubject);
-        scanf("%f", &ps.subjeat.subjectlevel);
-        printf("Test\n");
+        do{
+        printf("Course liking score of %s (5 - 0)  : ", ps.nameofsubject);
+        scanf("%f", &ps.subjeat.subjeatpoint);
+        }while (ps.subjeat.subjeatpoint > 5 || ps.subjeat.subjeatpoint < 0);
+        if (maxsp < ps.subjeat.subjeatpoint){
+            maxsp = ps.subjeat.subjeatpoint;
+        }
+        if (minsp > ps.subjeat.subjeatpoint){
+            minsp = ps.subjeat.subjeatpoint;
+        }
+        sumsp += ps.subjeat.subjeatpoint;
+
+        do{
+        printf("Teacher liking score of %s (5 - 0)) : ", ps.nameofsubject);
+        scanf("%f", &ps.subjeat.teacherpoint);
+        }while (ps.subjeat.teacherpoint > 5 || ps.subjeat.teacherpoint < 0);
+        if (maxtp < ps.subjeat.teacherpoint){
+            maxtp = ps.subjeat.teacherpoint;
+        }
+        if (mintp > ps.subjeat.teacherpoint){
+            mintp = ps.subjeat.teacherpoint;
+        }
+        sumtp += ps.subjeat.teacherpoint;
+
+        i++;
     }
+    printf("\nMax:\nDifficulty: %.2f  Course: %.2f  Teacher: %.2f\n", maxsl, maxtp, maxsp);
+    printf("\nMin:\nDifficulty: %.2f  Course: %.2f  Teacher: %.2f\n", minsl, mintp, minsp);
+    printf("\nAverange:\nDifficulty: %.2f  Course: %.2f  Teacher: %.2f\n", sumsl / i, sumsp / i, sumtp / i); 
     printf("Test 2");
 }
