@@ -109,8 +109,8 @@ int main(void) {
     // printf("%d %d %d\n", mode[0], d[0] , tmode);
     mode[tmode];
     // printf("%d %d\n", tmode, z / 2 + 1);
+    printf("Mode: ");
     if (tmode <= z / 2 + 1) {
-        printf("Mode: ");
         for (int j = 0; j < tmode; j++){
             printf("%.2f ", mode[j]);
             if (tmode < 1){
@@ -120,7 +120,7 @@ int main(void) {
         }
     }
     else {
-        printf("No mode\n");
+        printf("-\n");
     }
 //-----------------------------------------------------------------------
 // Q.D. (q3-q1)/2
