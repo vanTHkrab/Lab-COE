@@ -23,11 +23,13 @@ int main(){
             break;
         }
         printf("Subject: ");
-        scanf("%s", ps.subjeat.namesubject);
-        printf("Difficulty of %s (1-5): ", ps.subjeat.namesubject);
-        scanf("%f", ps.subjeat.subjectlevel);
+        scanf("%s", &ps.subjeat.namesubject);
+        do{
+        printf("Difficulty of %s (0-5): ", ps.subjeat.namesubject);
+        scanf("%f", &ps.subjeat.subjectlevel);
+        }while (ps.subjeat.subjectlevel > 5 || ps.subjeat.subjectlevel < 0);
         printf("Level(1-5) %s: ", ps.subjeat.namesubject);
-        scanf("%f", ps.subjeat.subjectlevel);
+        scanf("%f", &ps.subjeat.subjectlevel);
         printf("Test\n");
     }
     printf("Test 2");
