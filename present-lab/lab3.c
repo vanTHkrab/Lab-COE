@@ -113,7 +113,7 @@ int main(void) {
     if (tmode <= z / 2 + 1) {
         for (int j = 0; j < tmode; j++){
             printf("%.2f ", mode[j]);
-            if (tmode < 1){
+            if (tmode > 1){
                 printf(", ");
                 tmode--;
             }
