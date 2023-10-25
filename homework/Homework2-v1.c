@@ -39,29 +39,27 @@ int main(void) {
     }
 //-----------------------------------------------------------------------
 // count number of each number
-    int total = 0, time[z];
-    for(int i = 0; i < z + 1; i++){
-        for (int j = 0; j < count; j++){
-            if (d[i] == a[j]){
-                total++;
-            }
-        }
-    time[i] = total;
-    total = 0;
-    }
 //-----------------------------------------------------------------------
 // print
+    int time = 0, on;
     for (int i = 0; i < z + 1; i++){
-        printf("%d occurs %d time at ", d[i], time[i]);
+        for (int j = 0; j < count; j++){
+            if (d[i] == a[j]){
+                time++;
+            }
+        }
+        on = time;
+        printf("%d occurs %d time at ", d[i], time);
         for (int j = 0; j < count; j++){
             if (d[i] == c[j]){
                 printf("%d", j + 1);
-                if (time[i] > 1 ){
+                if (on > 1 ){
                     printf(", ");
-                    time[i]--;
+                    on--;
                 }
             }
         }
+    time = 0;
     printf("\n");
     }
 }
