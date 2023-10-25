@@ -1,22 +1,22 @@
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
-// wednesday afternoon
+
 typedef struct data_subject subjeat;
-struct data_subjeat{
-    char name[10000], commentsubject[20000];
+struct data_subject{
+    char name[10000];
     float teacherpoint, subjeatpoint, subjectlevel;
 };
 
-typedef struct info_format_personal personalstudent;
-struct info_format_personal {
+typedef struct info_format_subject datasubject;
+struct info_format_subject  {
     char nameofsubject[22];
-    struct data_subjeat subjeat;
+    struct data_subject subjeat;
 };
 
 int main(){
-    personalstudent ps;
-    int i = 0, count = 0;
+    datasubject ps;
+    int i = 0;
     float minsl = 5, minsp = 5, mintp = 5;
     float maxsl = 0, maxsp = 0, maxtp = 0;
     float sumsl = 0, sumsp = 0, sumtp = 0;
@@ -26,8 +26,8 @@ int main(){
     while(1){
         printf("Enter \" ! \"In Name To Stop\n");
         printf("Name: ");
-        scanf("%s", &ps.subjeat.name[count]);
-        if (ps.subjeat.name[count] == '!'){
+        scanf("%s", &ps.subjeat.name);
+        if (strcmp(ps.subjeat.name, "!") == 0){
             break;
         }
         do{
