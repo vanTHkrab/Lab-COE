@@ -92,7 +92,7 @@ int main(void) {
     // printf("%d\n", time[i]);
     }
 //-----------------------------------------------------------------------
-//  3.3) 
+//  3.3) Print Mode
     int maxtime = time[0], tmode = 0;
     for (int i = 0; i < z; i++){
         if (time[i] < time[i + 1]){
@@ -112,12 +112,13 @@ int main(void) {
     mode[tmode];
     // printf("%d %d\n", tmode, z / 2 + 1);
     printf("Mode: ");
+    int colon = tmode;
     if (tmode <= z / 2 + 1) {
         for (int j = 0; j < tmode; j++){
             printf("%.2f ", mode[j]);
-            if (tmode > 1){
-                printf(", ");
-                tmode--;
+            if (colon > 1){
+                printf(",");
+                colon--;
             }
         }
     }
