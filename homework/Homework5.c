@@ -19,14 +19,6 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct data_bank bank;
-struct data_bank
-{
-    char Customer_ID[100];
-    char name[100];
-    char lastname[100];
-};
-
 typedef struct account_bank account;
 struct account_bank
 {
@@ -38,7 +30,17 @@ typedef struct credit_bank credit;
 struct credit_bank
 {
     char creditID[10];
+    char type[10];
     struct account_bank;
+};
+
+typedef struct data_bank bank;
+struct data_bank
+{
+    char Customer_ID[100];
+    char name[100];
+    char lastname[100];
+    struct credit_bank;
 };
 
 void customer_ID(bank *customer)
@@ -51,26 +53,27 @@ void customer_ID(bank *customer)
     scanf("%s", customer->lastname);
 }
 
-void creat_credit(credit *credit, account *account)
-{
-    int account_number;
-    printf("Enter Credit ID : ");
+void create_credit(credit *credit, account *account) {
+    char account_number;
+    printf("Enter Credit ID: ");
     scanf("%s", credit->creditID);
-    do{
-    printf("Enter Account type ('1' Savings, '2' daily current): ");
-    scanf("%s", account_number);
-    }while(account_number != 1 || account_number != 2);
-    if (account_number == 1)
-    {
-        printf("Enter Account balance : ");
+
+    do {
+        printf("Enter Account type ('1' Savings, '2' Daily Current): ");
+        scanf(" %c", &account_number); // Added a space before %c to consume the newline character.
+
+    } while (account_number != '1' && account_number != '2'); // Changed || to &&
+
+    if (account_number == '1') {
+        printf("Enter Account balance: ");
         scanf("%s", account->balance);
-    }
-    else if (account_number == 2)
-    {
-        printf("Enter Account balance : ");
+        strcpy(credit->type, "Savings"); // Changed to a string
+    } else if (account_number == '2') {
+        printf("Enter Account balance: ");
         scanf("%s", account->balance);
-        printf("Enter Credit limit : ");
+        printf("Enter Credit limit: ");
         scanf("%s", account->credit_limit);
+        strcpy(credit->type, "Daily Current"); // Changed to a string
     }
 }
 
@@ -86,7 +89,7 @@ int main(){
         scanf("%d", &k);
         for (l = 0; l < k; l++)
         {
-            creat_credit(&credit[l], &account[l]);
+            create_credit(&credit[l], &account[l]);
         }
     }
     for (m = 0; m < i; m++)
@@ -95,7 +98,7 @@ int main(){
         printf("Customer name : %s\n", customer[m].name);
         printf("Customer lastname : %s\n", customer[m].lastname);
         printf("Credit ID : %s\n", credit[m].creditID);
-        printf("Account type : %s\n", account[m].account_number);
+        printf("Account type : %s\n", credit[m].type);
         printf("Account balance : %s\n", account[m].balance);
         printf("Credit limit : %s\n", account[m].credit_limit);
     }
