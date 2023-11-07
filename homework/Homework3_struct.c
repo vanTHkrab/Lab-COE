@@ -67,6 +67,7 @@ int main(){
         sumtp += ps.subjeat.teacherpoint;
 
         i++;
+        printf("\n");
     }
     printf("\nMax:\nDifficulty: %.2f  Course: %.2f  Teacher: %.2f\n", maxsl, maxtp, maxsp);
     printf("\nMin:\nDifficulty: %.2f  Course: %.2f  Teacher: %.2f\n", minsl, mintp, minsp);
