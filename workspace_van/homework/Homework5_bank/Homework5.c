@@ -12,7 +12,7 @@ typedef struct credit_bank credit;
 struct credit_bank
 {
     char creditID[10];
-    char type[1];
+    char type[10];
     struct account_in_bank;
 };
 
@@ -79,9 +79,9 @@ int main(){
         customer_user(&customer[0]);
         printf("No more than 10 account\n");
         do{
-        printf("Account do you have : ");
+        printf("How many account do you have? : ");
         scanf("%d", &k);
-        }while(k > 10);
+        }while(k > 10 || k < 0);
         for (int l = 0; l < k; l++)
         {   
             printf("\naccount number %d\n", l + 1);
