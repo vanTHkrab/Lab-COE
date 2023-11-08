@@ -67,7 +67,7 @@ int main() {
         }
         for (int i = 0; i < row; i++){
             if (nt == i){
-                printf("Date: %s\n", data[i][0]);
+                printf("Date : %s\n", data[i][0]);
                 printf("Average Monthly Players : %s\n", data[i][1]);
                 printf("Monthly Gain / Loss : %s\n", data[i][2]);
                 printf("Monthly Gain / Loss %% : %s\n", data[i][3]);
