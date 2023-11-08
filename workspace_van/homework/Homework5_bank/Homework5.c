@@ -74,9 +74,16 @@ int main(){
     bank customer[100];
     account account[100];
     credit credit[100];
-    int k;
+    int k, p = 0;
+    char ch;
     FILE *fp;
-        customer_user(&customer[0]);
+    while (1){
+        do{
+        printf("\nWant create new account? (y/n) : ");
+        scanf("%c", &ch);
+        }while(ch != 'y' && ch != 'n');
+        if (ch == 'n') break;
+        customer_user(&customer[p]);
         printf("No more than 10 account\n");
         do{
         printf("How many account do you have? : ");
@@ -87,13 +94,16 @@ int main(){
             printf("\naccount number %d\n", l + 1);
             create_credit(&credit[l], &account[l]);
         }
+        p++;
+    }
     fp = fopen("data_customer.txt", "w");
-    printf("\nCustomer ID : %s\n", customer[0].Customer_ID);
-    printf("Customer name : %s\n", customer[0].name);
-    printf("Customer lastname : %s\n\n", customer[0].lastname);
-    fprintf(fp, "Customer ID : %s\n", customer[0].Customer_ID);
-    fprintf(fp, "Customer name : %s\n", customer[0].name);
-    fprintf(fp, "Customer lastname : %s\n\n", customer[0].lastname);
+    for (int i = 0; i < p; i++){
+    printf("\nCustomer ID : %s\n", customer[i].Customer_ID);
+    printf("Customer name : %s\n", customer[i].name);
+    printf("Customer lastname : %s\n\n", customer[i].lastname);
+    fprintf(fp, "Customer ID : %s\n", customer[i].Customer_ID);
+    fprintf(fp, "Customer name : %s\n", customer[i].name);
+    fprintf(fp, "Customer lastname : %s\n\n", customer[i].lastname);
     for (int m = 0; m < k; m++)
     {
         printf("Credit ID : %s\n", credit[m].creditID);
@@ -105,6 +115,8 @@ int main(){
         fprintf(fp, "Account type : %s\n", credit[m].type);
         fprintf(fp, "Account balance : %s\n", account[m].balance);
         fprintf(fp, "Credit limit : %s\n\n", account[m].credit_limit);
+    }
+    printf("__________________________________________________________\n");
     }
     fclose(fp);
     return 0;

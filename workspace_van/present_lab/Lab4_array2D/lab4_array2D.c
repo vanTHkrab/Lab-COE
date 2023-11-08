@@ -1,7 +1,6 @@
 // https://onedrive.live.com/edit?id=CA02FAB35D91D925!157&resid=CA02FAB35D91D925!157&ithint=file%2cxlsx&ct=1699272857360&wdOrigin=OFFICECOM-WEB.MAIN.EDGEWORTH&wdPreviousSessionSrc=HarmonyWeb&wdPreviousSession=a34d863f-5cf5-4490-a1ef-3647e0841be8&wdo=2
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 int main() {
@@ -62,7 +61,7 @@ int main() {
             continue;
         }
         for (int i = 0; i < row; i++){
-            if (nt == i){
+            if (nt - 1 == i){
                 printf("Date : %s\n", data[i][0]);
                 printf("Average Monthly Players : %s\n", data[i][1]);
                 printf("Monthly Gain / Loss : %s\n", data[i][2]);
