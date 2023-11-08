@@ -77,11 +77,26 @@ void create_credit(credit *credit, account *account) {
     }
 }
 
+void check_credit(){
+    FILE *cfp;
+    cfp = fopen("data_customer.txt", "r");
+    char ch;
+    while ((ch = fgetc(cfp)) != EOF)
+    {
+        printf("%c", ch);
+    }
+    
+}
+
+
+
+
 int main(){
     bank customer[100];
     account account[100];
     credit credit[100];
     int i, j, k, l, m;
+    FILE *fp;
     for (j = 0; j < i; j++)
     {
         customer_ID(&customer[j]);
@@ -92,6 +107,7 @@ int main(){
             create_credit(&credit[l], &account[l]);
         }
     }
+    fp = fopen("data_customer.txt", "w");
     for (m = 0; m < i; m++)
     {
         printf("Customer ID : %s\n", customer[m].Customer_ID);
@@ -101,6 +117,14 @@ int main(){
         printf("Account type : %s\n", credit[m].type);
         printf("Account balance : %s\n", account[m].balance);
         printf("Credit limit : %s\n", account[m].credit_limit);
+        fprintf(fp, "Customer ID : %s\n", customer[m].Customer_ID);
+        fprintf(fp, "Customer name : %s\n", customer[m].name);
+        fprintf(fp, "Customer lastname : %s\n", customer[m].lastname);
+        fprintf(fp, "Credit ID : %s\n", credit[m].creditID);
+        fprintf(fp, "Account type : %s\n", credit[m].type);
+        fprintf(fp, "Account balance : %s\n", account[m].balance);
+        fprintf(fp, "Credit limit : %s\n", account[m].credit_limit);
     }
+    fclose(fp);
     return 0;
 }

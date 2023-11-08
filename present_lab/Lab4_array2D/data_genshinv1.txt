@@ -1,0 +1,5 @@
+Month	        
+Average_Monthly_Players	
+Monthly_Gain_/_Loss	
+Monthly_Gain_/_Loss_%	
+All_Time_Peak
