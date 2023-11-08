@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct account_bank account;
-struct account_bank
+typedef struct account_in_bank account;
+struct account_in_bank
 {
     char balance[100];
     char credit_limit[100];
@@ -12,8 +12,8 @@ typedef struct credit_bank credit;
 struct credit_bank
 {
     char creditID[10];
-    char type[10];
-    struct account_bank;
+    char type[1];
+    struct account_in_bank;
 };
 
 typedef struct data_bank bank;
@@ -35,7 +35,6 @@ void customer_ID(bank *customer)
     scanf("%s", customer->lastname);
 }
 
-
 void create_credit(credit *credit, account *account) {
     char account_number;
     printf("Enter Credit ID: ");
@@ -52,7 +51,6 @@ void create_credit(credit *credit, account *account) {
         strcpy(credit->type, "Savings"); 
         strcpy(account->credit_limit, "-");
     } 
-    
     else if (account_number == '2') {
         printf("Enter Account balance: ");
         scanf("%s", account->balance);
@@ -62,41 +60,40 @@ void create_credit(credit *credit, account *account) {
     }
 }
 
-
-void check_credit(){
-    FILE *cfp;
-    cfp = fopen("data_customer.txt", "r");
-    char ch;
-    while ((ch = fgetc(cfp)) != EOF)
-    {
-        printf("%c", ch);
-    }
-}
-
+// void check_credit(){
+//     FILE *cfp;
+//     cfp = fopen("data_customer.txt", "r");
+//     char ch;
+//     while ((ch = fgetc(cfp)) != EOF)
+//     {
+//         printf("%c", ch);
+//     }
+// }
 
 int main(){
     bank customer[100];
     account account[100];
     credit credit[100];
-    int k, l;
+    int k;
     FILE *fp;
         customer_ID(&customer[0]);
         printf("No more than 10 account\n");
+        do{
         printf("Account do you have : ");
         scanf("%d", &k);
-        for (l = 0; l < k; l++)
+        }while(k > 10);
+        for (int l = 0; l < k; l++)
         {   
             printf("\naccount number %d\n", l + 1);
             create_credit(&credit[l], &account[l]);
         }
     fp = fopen("data_customer.txt", "w");
-    printf("Customer ID : %s\n", customer[0].Customer_ID);
+    printf("\nCustomer ID : %s\n", customer[0].Customer_ID);
     printf("Customer name : %s\n", customer[0].name);
-    printf("Customer lastname : %s\n", customer[0].lastname);
+    printf("Customer lastname : %s\n\n", customer[0].lastname);
     fprintf(fp, "Customer ID : %s\n", customer[0].Customer_ID);
     fprintf(fp, "Customer name : %s\n", customer[0].name);
-    fprintf(fp, "Customer lastname : %s\n", customer[0].lastname);
-    fprintf(fp, "\n");
+    fprintf(fp, "Customer lastname : %s\n\n", customer[0].lastname);
     for (int m = 0; m < k; m++)
     {
         printf("Credit ID : %s\n", credit[m].creditID);
@@ -107,8 +104,7 @@ int main(){
         fprintf(fp, "Credit ID : %s\n", credit[m].creditID);
         fprintf(fp, "Account type : %s\n", credit[m].type);
         fprintf(fp, "Account balance : %s\n", account[m].balance);
-        fprintf(fp, "Credit limit : %s\n", account[m].credit_limit);
-        fprintf(fp, "\n");
+        fprintf(fp, "Credit limit : %s\n\n", account[m].credit_limit);
     }
     fclose(fp);
     return 0;
