@@ -25,7 +25,7 @@ struct data_bank
     struct credit_bank;
 };
 
-void customer_ID(bank *customer)
+void customer_user(bank *customer)
 {
     printf("Enter Customer ID : ");
     scanf("%s", customer->Customer_ID);
@@ -76,7 +76,7 @@ int main(){
     credit credit[100];
     int k;
     FILE *fp;
-        customer_ID(&customer[0]);
+        customer_user(&customer[0]);
         printf("No more than 10 account\n");
         do{
         printf("Account do you have : ");
