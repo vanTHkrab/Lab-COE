@@ -1,0 +1,14 @@
+Customer ID : 123
+Customer name : jkhjdwa
+Customer lastname : dwak
+
+Credit ID : 12
+Account type : Savings
+Account balance : 2
+Credit limit : -
+
+Credit ID : 12318
+Account type : Daily Current
+Account balance : 1345
+Credit limit : 1545
+

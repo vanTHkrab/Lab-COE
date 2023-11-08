@@ -22,7 +22,7 @@ int main() {
         else col++;
     }
     fclose(fdatagenshin);
-    
+
     int num = 1;
     for (int i = 0; i < row; i++) {
         if (num < 10) printf("|  %d ", num);

@@ -1,7 +1,0 @@
-Customer ID : 12345
-Customer name : nahida
-Customer lastname : kut
-Credit ID : 4444
-Account type : Savings
-Account balance : 500
-Credit limit : 

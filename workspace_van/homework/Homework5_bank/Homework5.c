@@ -1,21 +1,3 @@
-// // Write a program to use commands to input customer information from the keyboard and store it.
-// // Array variables of struct can then be written command to display data stored in an array variable of
-// // // struct on the screen and design the program. Able to work the program as sub-functions
-// Mass Bank would like to open deposit accounts for customers of the bank. The bank will collect information about each customer.
-// People like this:
-// - Customer ID
-// - Customer name
-// - Customer's last name
-// - 10 designated deposit account numbers
-// and store customer deposit account information as follows
-// - Deposit account number
-// - Account type (1 means savings account, 2 means current account)
-// - Account deposit balance
-// - Credit limit (current account only)
-// Write a program that receiving customer information and customer deposit accounts, each customer can open an account
-// You can deposit no more than 10 accounts per person. Then you can deposit-withdraw any number of deposit accounts of anyone and
-// Report all customer information and the status of each deposit account.
-
 #include <stdio.h>
 #include <string.h>
 
@@ -53,6 +35,7 @@ void customer_ID(bank *customer)
     scanf("%s", customer->lastname);
 }
 
+
 void create_credit(credit *credit, account *account) {
     char account_number;
     printf("Enter Credit ID: ");
@@ -60,22 +43,25 @@ void create_credit(credit *credit, account *account) {
 
     do {
         printf("Enter Account type ('1' Savings, '2' Daily Current): ");
-        scanf(" %c", &account_number); // Added a space before %c to consume the newline character.
-
-    } while (account_number != '1' && account_number != '2'); // Changed || to &&
+        scanf(" %c", &account_number); 
+    } while (account_number - '0' != 1 && account_number - '0' != 2); 
 
     if (account_number == '1') {
         printf("Enter Account balance: ");
         scanf("%s", account->balance);
-        strcpy(credit->type, "Savings"); // Changed to a string
-    } else if (account_number == '2') {
+        strcpy(credit->type, "Savings"); 
+        strcpy(account->credit_limit, "-");
+    } 
+    
+    else if (account_number == '2') {
         printf("Enter Account balance: ");
         scanf("%s", account->balance);
         printf("Enter Credit limit: ");
         scanf("%s", account->credit_limit);
-        strcpy(credit->type, "Daily Current"); // Changed to a string
+        strcpy(credit->type, "Daily Current"); 
     }
 }
+
 
 void check_credit(){
     FILE *cfp;
@@ -85,45 +71,44 @@ void check_credit(){
     {
         printf("%c", ch);
     }
-    
 }
-
-
 
 
 int main(){
     bank customer[100];
     account account[100];
     credit credit[100];
-    int i, j, k, l, m;
+    int k, l;
     FILE *fp;
-    for (j = 0; j < i; j++)
-    {
-        customer_ID(&customer[j]);
-        printf("Enter number of account : ");
+        customer_ID(&customer[0]);
+        printf("No more than 10 account\n");
+        printf("Account do you have : ");
         scanf("%d", &k);
         for (l = 0; l < k; l++)
-        {
+        {   
+            printf("\naccount number %d\n", l + 1);
             create_credit(&credit[l], &account[l]);
         }
-    }
     fp = fopen("data_customer.txt", "w");
-    for (m = 0; m < i; m++)
+    printf("Customer ID : %s\n", customer[0].Customer_ID);
+    printf("Customer name : %s\n", customer[0].name);
+    printf("Customer lastname : %s\n", customer[0].lastname);
+    fprintf(fp, "Customer ID : %s\n", customer[0].Customer_ID);
+    fprintf(fp, "Customer name : %s\n", customer[0].name);
+    fprintf(fp, "Customer lastname : %s\n", customer[0].lastname);
+    fprintf(fp, "\n");
+    for (int m = 0; m < k; m++)
     {
-        printf("Customer ID : %s\n", customer[m].Customer_ID);
-        printf("Customer name : %s\n", customer[m].name);
-        printf("Customer lastname : %s\n", customer[m].lastname);
         printf("Credit ID : %s\n", credit[m].creditID);
         printf("Account type : %s\n", credit[m].type);
         printf("Account balance : %s\n", account[m].balance);
         printf("Credit limit : %s\n", account[m].credit_limit);
-        fprintf(fp, "Customer ID : %s\n", customer[m].Customer_ID);
-        fprintf(fp, "Customer name : %s\n", customer[m].name);
-        fprintf(fp, "Customer lastname : %s\n", customer[m].lastname);
+        printf("\n");
         fprintf(fp, "Credit ID : %s\n", credit[m].creditID);
         fprintf(fp, "Account type : %s\n", credit[m].type);
         fprintf(fp, "Account balance : %s\n", account[m].balance);
         fprintf(fp, "Credit limit : %s\n", account[m].credit_limit);
+        fprintf(fp, "\n");
     }
     fclose(fp);
     return 0;
