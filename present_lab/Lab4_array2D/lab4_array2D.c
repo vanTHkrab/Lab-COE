@@ -5,30 +5,26 @@
 #include <string.h>
 
 int main() {
-    FILE *file;
+    FILE *fdatagenshin;
     char data[1000][6][100]; 
     int row = 0, col = 0;
 
-    file = fopen("data_genshinv1.txt", "r");
-    while (fscanf(file, "%s", data[row][col]) != EOF) {
-        col++;
-    }
-    fclose(file);
     printf(" ________________________________________________________________________________________________________________\n");
-    printf("|  # |    %s     |  %s |  %s |  %s |  %s  |\n", data[0][0], data[0][1], data[0][2], data[0][3], data[0][4]);
+    printf("|  # |    Month     |  Average_Monthly_Players |  Monthly_Gain_/_Loss |  Monthly_Gain_/_Loss_%% |  All_Time_Peak  |\n");
     printf("|----+--------------+--------------------------+----------------------+------------------------+-----------------|\n");
-    col = 0, row = 1;
-    file = fopen("data_genshinv2.txt", "r");
-    while (fscanf(file, "%s", data[row][col]) != EOF) {
+
+    fdatagenshin = fopen("data_genshinv2.txt", "r");
+    while (fscanf(fdatagenshin, "%s", data[row][col]) != EOF) {
         if (col == 4) {
             row++;
             col = 0;
         }
         else col++;
     }
-    fclose(file);
+    fclose(fdatagenshin);
+    
     int num = 1;
-    for (int i = 1; i < row; i++) {
+    for (int i = 0; i < row; i++) {
         if (num < 10) printf("|  %d ", num);
         else printf("| %d ", num);
         for(int k = 0; k < 5; k++) {
