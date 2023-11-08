@@ -4,8 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <stdio.h>
-
 int main() {
     FILE *file;
     char data[1000][6][100]; 
@@ -59,11 +57,14 @@ int main() {
     }
 
     while(1){
-        char number[5];
+        int nt;
         printf("\nEnter the number from table (Enter '0' to End): ");
-        scanf("%s", number);
-        int nt = atoi(number);
+        scanf("%d", &nt);
         if (nt == 0) break;
+        if (nt < 0 || nt > row - 1){
+            printf("Number not in list\n");
+            continue;
+        }
         for (int i = 0; i < row; i++){
             if (nt == i){
                 printf("Date: %s\n", data[i][0]);
