@@ -119,6 +119,7 @@ int main(){
         fprintf(fp, "Credit limit : %s\n\n", account[m].credit_limit);
     }
     printf("__________________________________________________________\n");
+    fprintf(fp, "__________________________________________________________\n");
     }
     fclose(fp);
     return 0;

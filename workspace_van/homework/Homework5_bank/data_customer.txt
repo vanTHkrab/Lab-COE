@@ -1,23 +1,28 @@
-Customer ID : 21381
-Customer name : dkewj
-Customer lastname : dwqij
+Customer ID : 425
+Customer name : few
+Customer lastname : fes
 
-Credit ID : 214
+Credit ID : 4085
 Account type : Savings
-Account balance : dwf
+Account balance : 1424
 Credit limit : -
 
-Credit ID : 2
+Credit ID : 1245
 Account type : Savings
-Account balance : 24
+Account balance : 5215
 Credit limit : -
 
-Customer ID : 8291
-Customer name : 34few
-Customer lastname : dwf
+Credit ID : 215
+Account type : Daily Current
+Account balance : 5125
+Credit limit : 251
 
-Credit ID : 214
+Customer ID : 3952
+Customer name : dwa
+Customer lastname : edkco
+
+Credit ID : 4085
 Account type : Savings
-Account balance : dwf
+Account balance : 1424
 Credit limit : -
 
