@@ -106,7 +106,7 @@ int main(){
     fprintf(fp, "Customer ID : %s\n", customer[i].Customer_ID);
     fprintf(fp, "Customer name : %s\n", customer[i].name);
     fprintf(fp, "Customer lastname : %s\n\n", customer[i].lastname);
-    for (int m = 0; m < mk[p]; m++)
+    for (int m = 0; m < mk[i]; m++)
     {
         printf("Credit ID : %s\n", credit[m].creditID);
         printf("Account type : %s\n", credit[m].type);

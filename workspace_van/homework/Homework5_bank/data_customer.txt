@@ -1,18 +1,23 @@
-Customer ID : 545
-Customer name : dlwa
-Customer lastname : fwaf
+Customer ID : 21381
+Customer name : dkewj
+Customer lastname : dwqij
 
-Credit ID : 4654
+Credit ID : 214
 Account type : Savings
-Account balance : 1546
+Account balance : dwf
 Credit limit : -
 
-Customer ID : 4654
-Customer name : dwa
-Customer lastname : fwa
-
-Credit ID : 4654
+Credit ID : 2
 Account type : Savings
-Account balance : 1546
+Account balance : 24
+Credit limit : -
+
+Customer ID : 8291
+Customer name : 34few
+Customer lastname : dwf
+
+Credit ID : 214
+Account type : Savings
+Account balance : dwf
 Credit limit : -
 
