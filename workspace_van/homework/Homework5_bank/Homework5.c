@@ -75,6 +75,7 @@ int main(){
     account account[100];
     credit credit[100];
     int k, p = 0;
+    int mk[100];
     char ch;
     FILE *fp;
     while (1){
@@ -94,6 +95,7 @@ int main(){
             printf("\naccount number %d\n", l + 1);
             create_credit(&credit[l], &account[l]);
         }
+        mk[p] = k;
         p++;
     }
     fp = fopen("data_customer.txt", "w");
@@ -104,7 +106,7 @@ int main(){
     fprintf(fp, "Customer ID : %s\n", customer[i].Customer_ID);
     fprintf(fp, "Customer name : %s\n", customer[i].name);
     fprintf(fp, "Customer lastname : %s\n\n", customer[i].lastname);
-    for (int m = 0; m < k; m++)
+    for (int m = 0; m < mk[p]; m++)
     {
         printf("Credit ID : %s\n", credit[m].creditID);
         printf("Account type : %s\n", credit[m].type);
