@@ -135,9 +135,9 @@ int main() {
     datanum num;
     odd numodd;
     even numeven;
+    num = NULL;
     numodd = NULL;
     numeven = NULL;
-    num = NULL;
     num = getdatanum(num);
     // display(num);
     numodd = search_odd(numodd, num);
