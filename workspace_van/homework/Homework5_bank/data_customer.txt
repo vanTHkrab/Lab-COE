@@ -1,18 +1,28 @@
-Customer ID : 545
-Customer name : dlwa
-Customer lastname : fwaf
+Customer ID : 425
+Customer name : few
+Customer lastname : fes
 
-Credit ID : 4654
+Credit ID : 4085
 Account type : Savings
-Account balance : 1546
+Account balance : 1424
 Credit limit : -
 
-Customer ID : 4654
-Customer name : dwa
-Customer lastname : fwa
-
-Credit ID : 4654
+Credit ID : 1245
 Account type : Savings
-Account balance : 1546
+Account balance : 5215
+Credit limit : -
+
+Credit ID : 215
+Account type : Daily Current
+Account balance : 5125
+Credit limit : 251
+
+Customer ID : 3952
+Customer name : dwa
+Customer lastname : edkco
+
+Credit ID : 4085
+Account type : Savings
+Account balance : 1424
 Credit limit : -
 
