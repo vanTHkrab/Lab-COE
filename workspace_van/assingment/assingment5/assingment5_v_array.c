@@ -6,33 +6,27 @@ struct number {
     int num, odd, even, position;
 };
 
-void getnum(datanum ){
-    datanum n;
-    int p = 0;
+void getnum(datanum num[], int *n) {
+    int i;
     printf("Enter a number (Stop enter -1): ");
-    do{
-        scanf("%d", &n);
-        if (n == -1) {
+    for (i = 0; i < 100; i++) {
+        scanf("%d", &num[i].num);
+        if (num[i].num == -1) {
             break;
         }
-        n[p].num = n;
-        n[p].position = p++;
-    }while (n != -1);
+        num[i].position = i + 1;
+        *n = *n + 1;
+    }
 }
-
-// void display(datanum num[100], datanum position[100]){
-//     printf("List of number: ");
-//     int t;
-//     for (int i = 0; i < position; i++) {
-//         printf("%d ", num[i].num);
-//     }
-//     printf("\n");
-
-// }
 
 int main() {
     datanum num[100];
-    getnum(num);
-    // display(num);
+    int n = 0;
+    getnum(num, &n);
+    printf("List of number: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", num[i].num);
+    }
+    printf("\n");
     return 0;
 }
