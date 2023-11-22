@@ -6,7 +6,7 @@ int main() {
     do {
         printf("Enter values for sally and hans: ");
         scanf("%d %d", &sally, &hans);
-        if (sally >= hans) {
+        if (sally > hans) {
             printf("sally must be less than hans. Please enter again.\n");
         }
     } while (sally > hans);

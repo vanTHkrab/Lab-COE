@@ -4,7 +4,7 @@ int main(){
     int a;
     while (1)
     {
-        printf("Enter number: "); scanf("%d", &a);
+        printf("\nEnter number: "); scanf("%d", &a);
         if(a == 15){ 
             printf("You are something forget \nBye");
             break;
