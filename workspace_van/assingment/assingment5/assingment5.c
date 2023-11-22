@@ -82,14 +82,36 @@ void display_odd(odd numodd) {
         pr = pr->oddnext;
         count++;
     }
-    printf("\n");
-    printf("List of position of odd number: ");
+    printf("\nList of position of odd number: ");
     while (pt != NULL) {
         printf("%d ", pt->positionodd);
         pt = pt->oddnext;
     }
-    printf("\n");
-    printf("total of odd :%d\n", count);
+    printf("\ntotal of odd :%d\n", count);
+    printf("\n-----------------------------\n");
+}
+
+void search_odd_position(odd numodd, datanum num) {
+    datanum oddtemp = num;
+    odd newnode;
+    int n, count = 0, a[100];
+    printf("Enter number: ");
+    scanf("%d", &n);
+    while(oddtemp != NULL){
+        if(oddtemp->num == n){
+            a[count] = oddtemp->position;
+            count++;
+        }
+        oddtemp = oddtemp->next;
+    }
+    printf("List of position of odd number: ");
+    if (count == 0) printf("Not found\n");
+        else{
+        for(int i = 0; i < count; i++){
+            printf("%d ", a[i]);
+        }
+    }
+    printf("\n-----------------------------\n");
 }
 // ------------------------------------------------------------
 even search_even(even numeven, datanum num) {
@@ -119,14 +141,36 @@ void display_even(even numeven) {
         er = er->evennext;
         count++;
     }
-    printf("\n");
-    printf("List of position of even number: ");
+    printf("\nList of position of even number: ");
     while (et != NULL) {
         printf("%d ", et->positioneven);
         et = et->evennext;
     }
-    printf("\n");
-    printf("total of even :%d\n", count);
+    printf("\ntotal of even :%d\n", count);
+    printf("\n-----------------------------\n");
+}
+
+void search_even_position(even, datanum num) {
+    datanum eventemp = num;
+    even neweven;
+    int n, count = 0, a[100];
+    printf("Enter number: ");
+    scanf("%d", &n);
+    while(eventemp != NULL){
+        if(eventemp->num == n){
+            a[count] = eventemp->position;
+            count++;
+        }
+        eventemp = eventemp->next;
+    }
+    printf("List of position of even number: ");
+    if (count == 0) printf("Not found\n");
+    else{
+        for(int i = 0; i < count; i++){
+            printf("%d ", a[i]);
+        }
+    }
+    printf("\n-----------------------------\n");
 }
 
 // ------------------------------------------------------------
@@ -140,9 +184,19 @@ int main() {
     numeven = NULL;
     num = getdatanum(num);
     // display(num);
-    numodd = search_odd(numodd, num);
-    display_odd(numodd);
-    numeven = search_even(numeven, num);
-    display_even(numeven);
+    while(1){
+        printf("Enter 0 to exit\nEnter 1 to search odd position\nEnter 2 to search even position\nEnter 3 to show all odd number\nEnter 4 to show all even number\nEnter: ");
+        int n;
+        scanf("%d", &n);
+        if(n == 0) break;
+        else if(n == 1) search_odd_position(numodd, num);
+        else if(n == 2) search_even_position(numeven, num);
+        else if(n == 3){numodd = search_odd(numodd, num);
+        display_odd(numodd);}
+        else if(n == 4){
+        numeven = search_even(numeven, num);
+        display_even(numeven);
+        }   
+    }
     return 0;
 }

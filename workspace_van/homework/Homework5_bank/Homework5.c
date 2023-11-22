@@ -98,7 +98,7 @@ int main(){
         mk[p] = k;
         p++;
     }
-    fp = fopen("data_customer.txt", "w");
+    fp = fopen("data_customer.txt", "a");
     for (int i = 0; i < p; i++){
     printf("\nCustomer ID : %s\n", customer[i].Customer_ID);
     printf("Customer name : %s\n", customer[i].name);

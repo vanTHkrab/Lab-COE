@@ -26,3 +26,33 @@ Account type : Savings
 Account balance : 1424
 Credit limit : -
 
+Customer ID : 2211
+Customer name : 5
+Customer lastname : 15
+
+Credit ID : 151
+Account type : Daily Current
+Account balance : 5151
+Credit limit : 5
+
+__________________________________________________________
+Customer ID : 51511
+Customer name : 51515
+Customer lastname : 5151
+
+Credit ID : 151
+Account type : Daily Current
+Account balance : 5151
+Credit limit : 5
+
+Credit ID : 5151
+Account type : Daily Current
+Account balance : 5151
+Credit limit : 2
+
+Credit ID : 515
+Account type : Savings
+Account balance : 151
+Credit limit : -
+
+__________________________________________________________

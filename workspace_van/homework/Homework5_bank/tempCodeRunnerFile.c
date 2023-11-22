@@ -1,1 +1,2 @@
-account_credit
+
+struct account_in_bank
