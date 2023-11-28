@@ -1,0 +1,1 @@
+newnode = (datanum)malloc(sizeof(struct number));
