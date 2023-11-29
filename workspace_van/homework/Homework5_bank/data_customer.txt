@@ -56,3 +56,254 @@ Account balance : 151
 Credit limit : -
 
 __________________________________________________________
+Customer ID : 212
+Customer name : 12
+Customer lastname : 12
+
+Credit ID : 2121
+Account type : Daily Current
+Account balance : 21211
+Credit limit : 12
+
+__________________________________________________________
+Customer ID : 2112
+Customer name : 121
+Customer lastname : 121
+
+Credit ID : 2121
+Account type : Daily Current
+Account balance : 21211
+Credit limit : 12
+
+__________________________________________________________
+Customer ID : 121
+Customer name : 212
+Customer lastname : 121
+
+Credit ID : 5454
+Account type : Daily Current
+Account balance : 54545
+Credit limit : 45
+
+__________________________________________________________
+Customer ID : 4545
+Customer name : 45454
+Customer lastname : 45454
+
+Credit ID : 5454
+Account type : Daily Current
+Account balance : 54545
+Credit limit : 45
+
+__________________________________________________________
+Customer ID : 11
+Customer name : 11
+Customer lastname : 11
+
+Credit ID : 123
+Account type : Savings
+Account balance : 123
+Credit limit : -
+
+__________________________________________________________
+Customer ID : 2
+Customer name : 2
+Customer lastname : 2
+
+Credit ID : 123
+Account type : Savings
+Account balance : 123
+Credit limit : -
+
+Credit ID : 12
+Account type : Savings
+Account balance : 23
+Credit limit : -
+
+__________________________________________________________
+Customer ID : 12
+Customer name : 12
+Customer lastname : 12
+
+Credit ID : 123
+Account type : Savings
+Account balance : 123
+Credit limit : -
+
+Credit ID : 12
+Account type : Savings
+Account balance : 23
+Credit limit : -
+
+Credit ID : 123
+Account type : Savings
+Account balance : 13
+Credit limit : -
+
+__________________________________________________________
+Customer ID : 1212
+Customer name : 121
+Customer lastname : 1212
+
+Credit ID : 4545
+Account type : Daily Current
+Account balance : 4545
+Credit limit : 5
+
+__________________________________________________________
+Customer ID : 5455
+Customer name : 4545
+Customer lastname : 4545
+
+Credit ID : 4545
+Account type : Daily Current
+Account balance : 4545
+Credit limit : 5
+
+__________________________________________________________
+Customer ID : 134
+Customer name : dwad
+Customer lastname : kuy
+
+Credit ID : 2485
+Account type : Daily Current
+Account balance : 4654
+
+__________________________________________________________
+Customer ID : 777
+Customer name : daw
+Customer lastname : fas
+
+Credit ID : 2485
+Account type : Daily Current
+Account balance : 4654
+
+Credit ID : 2485
+Account type : Daily Current
+Account balance : 4654
+
+__________________________________________________________
+Customer ID : 444
+Customer name : dwa
+Customer lastname : fff
+
+Credit ID : 546
+Account type : Savings
+Account balance : 5456
+Credit limit : -
+
+Customer ID : 456
+Customer name : dwa
+Customer lastname : 1wa23
+
+Credit ID : 15
+Account type : Daily Current
+Account balance : 1546
+Credit limit : 415
+
+Credit ID : 1
+Account type : Savings
+Account balance : 14564
+Credit limit : -
+
+Customer ID : 4854
+Customer name : wadkmj
+Customer lastname : faes
+
+Credit ID : 5465
+Account type : Savings
+Account balance : 14547
+Credit limit : -
+
+Customer ID : 456
+Customer name : dwa
+Customer lastname : 1wa23
+
+Credit ID : 15
+Account type : Daily Current
+Account balance : 1546
+Credit limit : 415
+
+Credit ID : 1
+Account type : Savings
+Account balance : 14564
+Credit limit : -
+
+Customer ID : 4854
+Customer name : wadkmj
+Customer lastname : faes
+
+Credit ID : 5465
+Account type : Savings
+Account balance : 14547
+Credit limit : -
+
+Customer ID : 454
+Customer name : dwaf
+Customer lastname : dw
+
+Credit ID : 456
+Account type : Savings
+Account balance : 1584
+Credit limit : -
+
+Credit ID : 2156
+Account type : Daily Current
+Account balance : 5646
+Credit limit : 4564
+
+Customer ID : 4564
+Customer name : dawd
+Customer lastname : 4
+
+Credit ID : 1
+Account type : Savings
+Account balance : 26
+Credit limit : -
+
+Customer ID : 456
+Customer name : dwa
+Customer lastname : 1wa23
+
+Credit ID : 15
+Account type : Daily Current
+Account balance : 1546
+Credit limit : 415
+
+Credit ID : 1
+Account type : Savings
+Account balance : 14564
+Credit limit : -
+
+Customer ID : 4854
+Customer name : wadkmj
+Customer lastname : faes
+
+Credit ID : 5465
+Account type : Savings
+Account balance : 14547
+Credit limit : -
+
+Customer ID : 454
+Customer name : dwaf
+Customer lastname : dw
+
+Credit ID : 456
+Account type : Savings
+Account balance : 1584
+Credit limit : -
+
+Credit ID : 2156
+Account type : Daily Current
+Account balance : 5646
+Credit limit : 4564
+
+Customer ID : 4564
+Customer name : dawd
+Customer lastname : 4
+
+Credit ID : 1
+Account type : Savings
+Account balance : 26
+Credit limit : -
+
