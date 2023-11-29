@@ -9,13 +9,6 @@ struct account_in_bank
     char credit_limit[100];
 };
 
-// struct account_in_bank
-// {
-//     char balance[100];
-//     char credit_limit[100];
-// }account[100];
-
-
 typedef struct credit_bank credit;
 struct credit_bank
 {
@@ -77,6 +70,7 @@ void create_credit(credit *credit, account *account) {
 //         printf("%c", ch);
 //     }
 // }
+
 
 int main(){
     bank customer;
