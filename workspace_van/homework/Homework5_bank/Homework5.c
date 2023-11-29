@@ -79,6 +79,7 @@ int main(){
     int k;
     char ch;
     FILE *fp, *cfp;
+    cfp = fopen("aa.txt", "a");
     while (1){
         do{
         printf("\nWant create new account? (y/n) : ");
@@ -86,7 +87,6 @@ int main(){
         }while(ch != 'y' && ch != 'n');
         if (ch == 'n') break;
         customer_user(&customer);
-        cfp = fopen("aa.txt", "a");
         fprintf(cfp, "Customer ID : %s\n", customer.Customer_ID);
         fprintf(cfp, "Customer name : %s\n", customer.name);
         fprintf(cfp, "Customer lastname : %s\n\n", customer.lastname);
@@ -104,20 +104,16 @@ int main(){
             fprintf(cfp, "Account balance : %s\n", account.balance);
             fprintf(cfp, "Credit limit : %s\n\n", account.credit_limit);
         }
-        fprintf(cfp, "------------------------------------------\n\n");
+        fprintf(cfp, "------------------------------------------\n\n"); 
     }
     fclose(cfp);
     cfp = fopen("aa.txt", "r");
-    fp = fopen("data_customer.txt", "a");
     while ((ch = fgetc(cfp)) != EOF)
     {
         printf("%c", ch);
-        fprintf(fp, "%c", ch);
     }
-    fclose(fp);
     fclose(cfp);
-    cfp = fopen("aa.txt", "w");
-    cfp = NULL;
-    fclose(cfp);
+    fclose(fopen("aa.txt", "w"));
+    fclose(fopen("aa.txt", "w"));
     return 0;
 }

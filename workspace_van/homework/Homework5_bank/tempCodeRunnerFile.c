@@ -1,2 +1,1 @@
-
-struct account_in_bank
+    cfp = fopen("aa.txt", "a");

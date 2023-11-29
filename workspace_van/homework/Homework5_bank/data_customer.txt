@@ -307,3 +307,171 @@ Account type : Savings
 Account balance : 26
 Credit limit : -
 
+Customer ID : 151
+Customer name : 1515
+Customer lastname : 2121
+
+Credit ID : 15854
+Account type : Daily Current
+Account balance : 18548
+Credit limit : 5
+
+------------------------------------------
+
+Customer ID : 1212
+Customer name : 121
+Customer lastname : 151
+
+Credit ID : 1515
+Account type : Savings
+Account balance : 5151
+Credit limit : -
+
+------------------------------------------
+
+Customer ID : 15415
+Customer name : wadj
+Customer lastname : wdadaw
+
+Credit ID : 45456
+Account type : Savings
+Account balance : 5646
+Credit limit : -
+
+------------------------------------------
+
+Customer ID : 154
+Customer name : daj
+Customer lastname : fieash
+
+Credit ID : 454
+Account type : Savings
+Account balance : 154
+Credit limit : -
+
+Credit ID : 2
+Account type : Savings
+Account balance : 54
+Credit limit : -
+
+------------------------------------------
+
+Customer ID : 123
+Customer name : dwa
+Customer lastname : daw
+
+Credit ID : 54
+Account type : Savings
+Account balance : 456
+Credit limit : -
+
+------------------------------------------
+
+Customer ID : 4545
+Customer name : 1dwad
+Customer lastname : 1234aw
+
+Credit ID : 45456
+Account type : Savings
+Account balance : 4546
+Credit limit : -
+
+Credit ID : 2
+Account type : Daily Current
+Account balance : 1564459
+Credit limit : 145645
+
+------------------------------------------
+
+Customer ID : 1234
+Customer name : daw
+Customer lastname : daw
+
+Credit ID : 5134
+Account type : Savings
+Account balance : 4564
+Credit limit : -
+
+------------------------------------------
+
+Customer ID : 454
+Customer name : awdkif
+Customer lastname : ,kfos\
+
+Credit ID : 124564
+Account type : Savings
+Account balance : 1564
+Credit limit : -
+
+------------------------------------------
+
+Customer ID : 41547
+Customer name : rfawd
+Customer lastname : wdwadfr
+
+Credit ID : 3564
+Account type : Savings
+Account balance : 415649
+Credit limit : -
+
+Credit ID : 24564
+Account type : Daily Current
+Account balance : 4874564
+Credit limit : 154
+
+------------------------------------------
+
+Customer ID : 5654
+Customer name : 1346
+Customer lastname : 1564
+
+Credit ID : 4156
+Account type : Savings
+Account balance : 45646
+Credit limit : -
+
+------------------------------------------
+
+Customer ID : 444
+Customer name : 444
+Customer lastname : 444
+
+Credit ID : 444
+Account type : Daily Current
+Account balance : 124
+Credit limit : 5456
+
+Credit ID : 156
+Account type : Savings
+Account balance : 4154
+Credit limit : -
+
+Credit ID : 115
+Account type : Savings
+Account balance : 4184
+Credit limit : -
+
+------------------------------------------
+
+Customer ID : 45
+Customer name : 4
+Customer lastname : 4
+
+Credit ID : 456
+Account type : Savings
+Account balance : 484
+Credit limit : -
+
+------------------------------------------
+
+Customer ID : 111
+Customer name : 111
+Customer lastname : 111
+
+Credit ID : 111
+Account type : Savings
+Account balance : 111
+Credit limit : -
+
+------------------------------------------
+
