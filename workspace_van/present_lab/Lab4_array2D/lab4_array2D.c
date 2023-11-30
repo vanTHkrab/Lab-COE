@@ -55,7 +55,7 @@ int main() {
 
     while(1){
         int nt;
-        printf("\nEnter the number from table (Enter '0' to End): ");
+        printf("\nEnter the number from table (Enter '0' to stop): ");
         scanf("%d", &nt);
         if (nt == 0) break;
         if (nt < 0 || nt > row - 1){
