@@ -108,11 +108,14 @@ int main(){
     }
     fclose(cfp);
     cfp = fopen("aa.txt", "r");
+    fp = fopen("data_customer.txt", "a");
     while ((ch = fgetc(cfp)) != EOF)
     {
         printf("%c", ch);
+        fprintf(fp, "c", ch);
     }
     fclose(cfp);
+    fclose(fp);
     fclose(fopen("aa.txt", "w"));
     fclose(fopen("aa.txt", "w"));
     return 0;
