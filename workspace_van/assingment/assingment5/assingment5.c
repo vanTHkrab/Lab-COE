@@ -42,19 +42,6 @@ datanum getdatanum(datanum num) {
     return num;
 }
 
-void display(datanum num) {
-    datanum temp;
-    temp = num;
-    printf("List of number: ");
-    while (temp != NULL) {
-        printf("%d ", temp->num);
-        temp = temp->next;
-    }
-    printf("\n");
-}
-
-// ------------------------------------------------------------
-
 odd search_odd(odd numodd, datanum num) {
     datanum oddtemp = num;
     odd newnode;
@@ -70,6 +57,36 @@ odd search_odd(odd numodd, datanum num) {
     }
     return numodd;
 }
+
+even search_even(even numeven, datanum num) {
+    datanum eventemp = num;
+    even neweven;
+    while (eventemp != NULL) {
+        if (eventemp->num % 2 == 0) {
+            neweven = (even)malloc(sizeof(struct even));
+            neweven->numeven = eventemp->num;
+            neweven->positioneven = eventemp->position;
+            neweven->evennext = numeven;
+            numeven = neweven;
+        }
+        eventemp = eventemp->next;
+    }
+    return numeven;
+}
+
+void display(datanum num) {
+    datanum temp;
+    temp = num;
+    printf("List of number: ");
+    while (temp != NULL) {
+        printf("%d ", temp->num);
+        temp = temp->next;
+    }
+    printf("\n");
+}
+
+// ------------------------------------------------------------
+
 
 void display_odd(odd numodd) {
     odd pr, pt;
@@ -88,7 +105,7 @@ void display_odd(odd numodd) {
         pt = pt->oddnext;
     }
     printf("\ntotal of odd :%d\n", count);
-    printf("\n-----------------------------\n");
+    printf("\n");
 }
 
 void search_odd_position(odd numodd, datanum num) {
@@ -97,6 +114,10 @@ void search_odd_position(odd numodd, datanum num) {
     int n, count = 0, a[100];
     printf("Enter number: ");
     scanf("%d", &n);
+    if (n % 2 == 0) {
+        printf("Not odd number\n");
+        return;
+    }
     while(oddtemp != NULL){
         if(oddtemp->num == n){
             a[count] = oddtemp->position;
@@ -104,31 +125,16 @@ void search_odd_position(odd numodd, datanum num) {
         }
         oddtemp = oddtemp->next;
     }
-    printf("List of position of odd number: ");
+    printf("Position of %d: ", n);
     if (count == 0) printf("Not found\n");
         else{
         for(int i = 0; i < count; i++){
             printf("%d ", a[i]);
         }
     }
-    printf("\n-----------------------------\n");
+    printf("\n");
 }
 // ------------------------------------------------------------
-even search_even(even numeven, datanum num) {
-    datanum eventemp = num;
-    even neweven;
-    while (eventemp != NULL) {
-        if (eventemp->num % 2 == 0) {
-            neweven = (even)malloc(sizeof(struct even));
-            neweven->numeven = eventemp->num;
-            neweven->positioneven = eventemp->position;
-            neweven->evennext = numeven;
-            numeven = neweven;
-        }
-        eventemp = eventemp->next;
-    }
-    return numeven;
-}
 
 void display_even(even numeven) {
     even er, et;
@@ -147,15 +153,18 @@ void display_even(even numeven) {
         et = et->evennext;
     }
     printf("\ntotal of even :%d\n", count);
-    printf("\n-----------------------------\n");
 }
 
-void search_even_position(even, datanum num) {
+void search_even_position(even numeven, datanum num) {
     datanum eventemp = num;
     even neweven;
     int n, count = 0, a[100];
     printf("Enter number: ");
     scanf("%d", &n);
+    if (n % 2 != 0) {
+        printf("Not even number\n");
+        return;
+    }
     while(eventemp != NULL){
         if(eventemp->num == n){
             a[count] = eventemp->position;
@@ -163,14 +172,14 @@ void search_even_position(even, datanum num) {
         }
         eventemp = eventemp->next;
     }
-    printf("List of position of even number: ");
+    printf("Position of %d: ", n);
     if (count == 0) printf("Not found\n");
     else{
         for(int i = 0; i < count; i++){
             printf("%d ", a[i]);
         }
     }
-    printf("\n-----------------------------\n");
+    printf("\n");
 }
 
 // ------------------------------------------------------------
@@ -182,21 +191,50 @@ int main() {
     num = NULL;
     numodd = NULL;
     numeven = NULL;
-    num = getdatanum(num);
     // display(num);
     while(1){
-        printf("Enter 0 to exit\nEnter 1 to search odd position\nEnter 2 to search even position\nEnter 3 to show all odd number\nEnter 4 to show all even number\nEnter: ");
         int n;
+        printf("1. Add number\n2. Display\n3. Search odd position\n4. Search even position\n5. Display odd\n6. Display even\n7. Clear number\n8. Exit\n-> ");
         scanf("%d", &n);
-        if(n == 0) break;
-        else if(n == 1) search_odd_position(numodd, num);
-        else if(n == 2) search_even_position(numeven, num);
-        else if(n == 3){numodd = search_odd(numodd, num);
-        display_odd(numodd);}
-        else if(n == 4){
-        numeven = search_even(numeven, num);
-        display_even(numeven);
-        }   
+        if (num == NULL && n != 1 && n != 8) {
+            printf("Please add number\n___________________________\n");
+            continue;
+        }
+        switch (n) {
+            case 1:
+                num = getdatanum(num);
+                numodd = search_odd(numodd, num);
+                numeven = search_even(numeven, num);
+                break;
+            case 2:
+                display(num);
+                break;
+            case 3:
+                search_odd_position(numodd, num);
+                break;
+            case 4:
+                search_even_position(numeven, num);
+                break;
+            case 5:
+                display_odd(numodd);
+                break;
+            case 6:
+                display_even(numeven);
+                break;
+            case 7:
+                num = NULL;
+                numodd = NULL;
+                numeven = NULL;
+                break;
+            case 8:
+                printf("Exit program, Thanks\n");
+                exit(0);
+                break;
+            default:
+                printf("Enter Just 1-8\n");
+                break;
+        }
+        printf("_________________________________________________\n");
     }
     return 0;
 }

@@ -11,7 +11,12 @@ int main () {
 int p, i ;
     printf("How Many People Do You Want, sir? : ") ;
     scanf("%d",&p) ;
-
+    int n ;
+    int DAN[n] ;
+    int y[n] ;
+    int x[n] ;
+    int z[n] ;
+    int j=0 ;
 for(i=0;i<p;i++) {
     printf("Client (%d)\n",i+1) ;
     printf("Enter Your ID : ") ;
@@ -21,15 +26,9 @@ for(i=0;i<p;i++) {
     printf("\nEnter Your Lastname : ") ;
     scanf("%s",&client.lastname) ;
     
-int n ;
     printf("\nAccount Limit at 10") ;
     printf("\nHow Many Account Do You Have : ") ;
     scanf("%d",&n) ;
-int DAN[n] ;
-    int y[n] ;
-    int x[n] ;
-    int z[n] ;
-    int j=0 ;
 do {
     if (n<=10) {
     
