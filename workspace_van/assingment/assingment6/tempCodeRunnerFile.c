@@ -1,1 +1,3 @@
-newnode = (datanum)malloc(sizeof(struct number));
+    AuuAmm = search_AuuAmm(AuuAmm, num);
+    display(num);
+    display_AuuAmm(AuuAmm);

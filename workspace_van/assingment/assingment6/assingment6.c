@@ -20,9 +20,9 @@ datanum getnum(datanum num){
     datanum newnode;
     int n;
     do
+    printf("Enter Number: ");
     {
         newnode = (datanum)malloc(sizeof(struct number));
-        printf("Enter Number: ");
         scanf("%d" ,&n);
         if (n == 0) break;
         newnode->num = n;
@@ -62,7 +62,7 @@ Amm search_AuuAmm(Amm AuuAmm, datanum num){
 void display_AuuAmm(Amm AuuAmm){
     Amm pt;
     pt = AuuAmm;
-    printf("\n");
+    printf("\nlist of can divisible by 7:");
     while (pt != NULL){
         printf("%d ", pt->AuuAmm);
         pt = pt->next;
@@ -76,7 +76,7 @@ int main(){
     AuuAmm = NULL;
 //------------------------------------------------------------
     num = getnum(num);
-    // AuuAmm = search_AuuAmm(AuuAmm, num);
-    // display(num);
-    // display_AuuAmm(AuuAmm);
+    AuuAmm = search_AuuAmm(AuuAmm, num);
+    display(num);
+    display_AuuAmm(AuuAmm);
 }
