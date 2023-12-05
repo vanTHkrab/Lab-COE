@@ -225,7 +225,6 @@ void money(idcustomer customer) {
     return;
 }
 
-//display
 void display(idcustomer customer) {
     idcredit tempcredit;
     idcustomer temp = customer;
@@ -280,23 +279,25 @@ void displayall(idcustomer customer){
     char admin[50];
     printf("Enter admin password: ");
     scanf("%s", admin);
-    if (strcpy(admin, "12") != 0){
+    if (strcmp(admin, "12") != 0) {
         printf("You are not admin\n");
         return;
     }
-    if (temp->id == NULL){
-        printf("No anyone customer\n");
+
+    if (temp == NULL) {
+        printf("No customers\n");
         return;
     }
-    else if (temp->credit == NULL){
-        printf("No anyone credit\n");
-        return;
-    }
+
     while (temp != NULL){
         printf("Customer ID: %s\n", temp->id);
         printf("Customer Name: %s\n", temp->name);
         printf("Customer Lastname: %s\n", temp->lastname);
         tempcredit = temp->credit;
+        if (tempcredit == NULL) {
+            printf("No credits for this customer\n");
+            return;
+        } else
         while (tempcredit != NULL){
             printf("Credit ID: %s\n", tempcredit->creditid);
             printf("Credit Type: %s\n", tempcredit->type);
@@ -311,7 +312,6 @@ void displayall(idcustomer customer){
         temp = temp->next;
     }
     return;
-
 }
 
 void testdisplay(idcustomer customer) {

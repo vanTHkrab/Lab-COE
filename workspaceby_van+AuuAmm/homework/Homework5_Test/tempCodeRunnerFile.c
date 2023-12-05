@@ -1,1 +1,2 @@
-idcredit
+
+    scanf("%s", admin);
