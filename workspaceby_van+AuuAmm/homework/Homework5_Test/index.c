@@ -225,6 +225,7 @@ void money(idcustomer customer) {
     return;
 }
 
+//display
 void display(idcustomer customer) {
     idcredit tempcredit;
     idcustomer temp = customer;
@@ -279,7 +280,7 @@ void displayall(idcustomer customer){
     char admin[50];
     printf("Enter admin password: ");
     scanf("%s", admin);
-    if (strcpy(admin, "admin!furina@AuuJee&Amm") != 0){
+    if (strcpy(admin, "12") != 0){
         printf("You are not admin\n");
         return;
     }
@@ -303,7 +304,7 @@ void displayall(idcustomer customer){
             if (strcmp(tempcredit->type, "2") == 0){
                 printf("Credit Limit: %.2f\n", tempcredit->limit);
             }
-            printf("------------------------------------\n")
+            printf("------------------------------------\n");
             tempcredit = tempcredit->creditnext;
         }
         printf("____________________________________________________\n");
@@ -355,5 +356,5 @@ int main() {
         }
         printf("\n");
     }
-    return 0;
+    return 0;   
 }
