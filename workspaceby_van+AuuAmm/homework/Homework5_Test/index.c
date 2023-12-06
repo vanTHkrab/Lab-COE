@@ -137,7 +137,7 @@ void money(idcustomer customer) {
     char id[10], cid[10], pin[10];
     int t;
     float money;
-    if (temp->id == NULL){
+    if (temp == NULL){
         printf("No anyone customer\n");
         return;
     }
@@ -229,7 +229,7 @@ void display(idcustomer customer) {
     idcredit tempcredit;
     idcustomer temp = customer;
     char id[10], name[30], lastname[30];
-    if (temp->id == NULL){
+    if (temp == NULL){
         printf("No anyone customer\n");
         return;
     }
