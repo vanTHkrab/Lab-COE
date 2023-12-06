@@ -77,7 +77,7 @@ int main(){
     while(1){
         printf("1. Add Number\n2. Display check number\n3. Display number divisible by 7\n4. Clear number\n5. Exit\n->");
         scanf("%d", &a);
-        if (a != 1 && n == NULL){
+        if (a != 1 && n == NULL && a != 5){
             printf("Pls add number\n_____________________\n");
             continue;
         }

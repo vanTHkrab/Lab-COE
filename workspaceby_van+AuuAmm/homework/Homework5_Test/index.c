@@ -7,6 +7,7 @@ struct datacredit {
     char id[10];
     char creditid[10];
     char type[5], pin[10];
+    int acount;
     float limit;
     float balance;
     idcredit creditnext;
@@ -68,6 +69,7 @@ idcustomer createcredit(idcustomer customer) {
                 return customer;
             }
             for (int i = 0; i < k; i++){
+                printf("Credit %d\n", temp->num + 1);
                 printf("Enter Credit ID: ");
                 scanf("%s", cid);
                 tempcredit = temp->credit;
@@ -80,6 +82,7 @@ idcustomer createcredit(idcustomer customer) {
                 }
                 newnode = (idcredit)malloc(sizeof(struct datacredit));
                 temp->num++;
+                newnode->acount = temp->num;
                 strcpy(newnode->id, id);
                 strcpy(newnode->creditid, cid);
                 do{
@@ -118,6 +121,8 @@ idcustomer createcredit(idcustomer customer) {
                     default:
                         printf("Input 1-5\n");
                     }
+                    printf("Enter Credit balance: ");
+                    scanf("%f", &newnode->balance);
                 }
                 newnode->creditnext = temp->credit;
                 temp->credit = newnode;
@@ -182,7 +187,12 @@ void money(idcustomer customer) {
                             return;
                         }
                         else if (strcmp(tempcredit->type, "2") == 0){
-                            printf("Your type cann't deposit money\n");
+                            printf("Your balance: %.2f\n", tempcredit->limit);
+                            printf("Enter money you want deposit: ");
+                            scanf("%f", &money);
+                            tempcredit->balance += money;
+                            printf("Deposit success, your balance now: %.2f\n", tempcredit->balance);
+                            printf("Your balance limit: %.2f\n", tempcredit->limit);
                             return;
                         }
                     case 2:
@@ -199,15 +209,37 @@ void money(idcustomer customer) {
                             return;
                         }
                         else if (strcmp(tempcredit->type, "2") == 0){
+                            printf("Your balance: %.2f\n", tempcredit->balance);
                             printf("Your remaining credit limit: %.2f\n", tempcredit->limit);
                             printf("Enter money: ");
                             scanf("%f", &money);
-                            if (money > tempcredit->limit){
-                                printf("Not enough money\n");
+                            if (money > tempcredit->limit + tempcredit->balance){
+                                printf("Your remaining credit are cann't withdraw more\n");
                                 return;
                             }
-                            tempcredit->limit -= money;
-                            printf("Withdraw success, your remaining credit limit: %.2f\n", tempcredit->limit);
+                            if (money > tempcredit->balance){
+                                printf("Want to withdraw more than your balance by use remaining credit limit?\n");
+                                printf("1. Yes\n2. No\n-> ");
+                                scanf("%d", &t);
+                                if (t == 1){
+                                    tempcredit->balance -= money;
+                                    tempcredit->limit += tempcredit->balance;
+                                    tempcredit->balance = 0;
+                                    printf("Withdraw success, your balance now: %.2f\n", tempcredit->balance);
+                                    printf("Your remaining credit limit: %.2f\n", tempcredit->limit);
+                                    return;
+                                }
+                                else if (t == 2){
+                                    return;
+                                }
+                                else{
+                                    printf("Input 1-2\n");
+                                    return;
+                                }
+                            }
+                            tempcredit->balance -= money;
+                            printf("Withdraw success, your balance now: %.2f\n", tempcredit->balance);
+                            return;
                         }
                     case 3:
                         return;
@@ -255,6 +287,7 @@ void display(idcustomer customer) {
             }
             tempcredit = temp->credit;
             while (tempcredit != NULL){
+                printf("\nCredit %d\n", tempcredit->acount);
                 printf("Customer ID: %s\n", tempcredit->id);
                 printf("Credit ID: %s\n", tempcredit->creditid);
                 printf("Credit Type: %s\n", tempcredit->type);
@@ -262,10 +295,9 @@ void display(idcustomer customer) {
                 if (strcmp(tempcredit->type, "2") == 0){
                     printf("Credit Limit: %.2f\n", tempcredit->limit);
                 }
-                return;
+                printf("------------------------------------\n");
                 tempcredit = tempcredit->creditnext;
             }
-            printf("Credit ID not found\n");
         }
         temp = temp->next;
     }
@@ -283,24 +315,24 @@ void displayall(idcustomer customer){
         printf("You are not admin\n");
         return;
     }
-
     if (temp == NULL) {
         printf("No customers\n");
         return;
     }
-
     while (temp != NULL){
         printf("Customer ID: %s\n", temp->id);
         printf("Customer Name: %s\n", temp->name);
-        printf("Customer Lastname: %s\n", temp->lastname);
+        printf("Customer Lastname: %s\n\n", temp->lastname);
         tempcredit = temp->credit;
-        if (tempcredit == NULL) {
-            printf("No credits for this customer\n");
-            return;
-        } else
         while (tempcredit != NULL){
+            if (tempcredit == NULL) {
+                printf("No credits for this customer\n");
+                break;
+            }
+            printf("Credit %d\n", tempcredit->acount);
             printf("Credit ID: %s\n", tempcredit->creditid);
             printf("Credit Type: %s\n", tempcredit->type);
+            printf("Credit PIN: %s\n", tempcredit->pin);
             printf("Credit Balance: %.2f\n", tempcredit->balance);
             if (strcmp(tempcredit->type, "2") == 0){
                 printf("Credit Limit: %.2f\n", tempcredit->limit);
@@ -325,7 +357,7 @@ void testdisplay(idcustomer customer) {
 int main() {
     idcustomer customer = NULL;
     int k;
-    printf("Welcome to Bank\n");
+    printf("Welcome to AuuJee&Amm Bank\n");
     while (1) {
         printf("1. Create Customer\n2. Create Credit (not more than 10 accounts)\n3. Deposit/Withdraw\n4. Display your account\n5. Display all(admin)\n6. Exit\n-> ");
         scanf("%d", &k);
