@@ -187,7 +187,7 @@ void money(idcustomer customer) {
                             return;
                         }
                         else if (strcmp(tempcredit->type, "2") == 0){
-                            printf("Your balance: %.2f\n", tempcredit->limit);
+                            printf("Your balance: %.2f\n", tempcredit->balance);
                             printf("Enter money you want deposit: ");
                             scanf("%f", &money);
                             tempcredit->balance += money;
@@ -388,5 +388,5 @@ int main() {
         }
         printf("\n");
     }
-    return 0;   
+    return;   
 }
