@@ -1,7 +1,9 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<conio.h>
-#include<string.h>
+// add insert and search
+
+# include <stdio.h>
+# include <stdlib.h>
+# include <conio.h>
+# include <string.h>
 
 struct publishstruct {
     char code[7];
@@ -10,6 +12,7 @@ struct publishstruct {
 } publishing;
 
 typedef FILE *filetype;
+
 int menu(){
     int answer;
     printf(" MENU\n");
@@ -49,6 +52,7 @@ filetype CreateFile(filetype fname){
     fclose(fname);
     return(fname);
 }
+
 void Display(filetype fname) {
     char filename[10];
     printf(" File name : ");
@@ -70,6 +74,7 @@ void Display(filetype fname) {
         }
     }
 }
+
 int main(void) {
     filetype fp;
     int ch = 0;

@@ -19,6 +19,8 @@ int menu(){
     printf(" [1] Create file\n");
     printf(" [2] Display Data in file\n");
     printf(" [3] Stop running program\n\n");
+    // printf(" [4] Insert Data in file\n");
+    // printf(" [5] Search Data in file\n\n");
     printf(" Your answer ");
     scanf("%d",&answer);
     return(answer);
