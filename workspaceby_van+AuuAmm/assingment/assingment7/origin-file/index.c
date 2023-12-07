@@ -50,6 +50,7 @@ filetype CreateFile(filetype fname){
     fclose(fname);
     return(fname);
 }
+
 void Display(filetype fname) {
     char filename[10];
     printf(" File name : ");
@@ -71,6 +72,7 @@ void Display(filetype fname) {
         }
     }
 }
+
 int main(void) {
     filetype fp;
     int ch = 0;
