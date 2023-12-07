@@ -10,6 +10,7 @@ struct publishstruct {
 } publishing;
 
 typedef FILE *filetype;
+
 int menu(){
     int answer;
     printf(" MENU\n");
