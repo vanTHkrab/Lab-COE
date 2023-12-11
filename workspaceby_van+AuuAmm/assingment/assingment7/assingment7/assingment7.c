@@ -18,35 +18,37 @@ int menu(){
     printf(" MENU\n");
     printf(" [1] Create file\n");
     printf(" [2] Display Data in file\n");
-    printf(" [3] Stop running program\n\n");
-    printf(" Your answer ");
+    printf(" [3] Insert Data in file\n");
+    printf(" [4] Search Data in file\n");
+    printf(" [5] Stop running program\n\n");
+    printf(" Your answer :");
     scanf("%d",&answer);
     return(answer);
 }
 
 filetype CreateFile(filetype fname){
     char filename[10], price[6];
-    printf("File name : ");
+    printf(" File name : ");
     gets(filename);
     gets(filename);
     printf("%s\n",filename) ;
     if (( fname = fopen(filename,"w")) == NULL ) {
         printf(" Error in opening file \n " );
-        exit(1);
+        return(fname);
         }
     while (1) {
-        printf("Code ( Enter = Quit ) : ");
+        printf(" Code ( Enter = Quit ) : ");
         gets(publishing.code);
         if (publishing.code[0] == '\0' ) break;
-        printf("Title : " );
+        printf(" Title : " );
         gets(publishing.title);
-        printf("Price : ");
+        printf(" Price : ");
         gets(price);
         publishing.price = atoi(price);
         fwrite(&publishing,sizeof(publishing),1,fname);
         if (ferror(fname)) {
-            printf("Error in writing \n ");
-            exit(1);
+            printf(" Error in writing \n ");
+            return(fname);
         }
     }
     fclose(fname);
@@ -60,12 +62,12 @@ void Display(filetype fname) {
     gets(filename);
     if ((fname = fopen(filename,"r")) == NULL) {
         printf(" Error in opening file \n ");
-        exit(1);
+        return;
     }
     while (fread(&publishing ,sizeof(publishing),1,fname) == 1){
-    if (ferror(fname) ) {
+    if (ferror(fname)) {
         printf(" Error in reading file \n ");
-        exit(1);
+        return;
     }
     else {
         printf("code = %s \n",publishing.code);
@@ -75,16 +77,90 @@ void Display(filetype fname) {
     }
 }
 
+filetype Insert(filetype fname){
+    char filename[10], price[6];
+    printf(" File name : ");
+    gets(filename);
+    gets(filename);
+    printf("%s\n",filename) ;
+    if (( fname = fopen(filename,"r")) == NULL ) {
+        printf(" Error in opening file \n " );
+        return(fname);
+        }
+    fclose(fname);
+    if (( fname = fopen(filename,"a")) == NULL ) {
+        printf(" Error in opening file \n " );
+        return(fname);
+        }
+    while (1) {
+        printf(" Code ( Enter = Quit ) : ");
+        gets(publishing.code);
+        if (publishing.code[0] == '\0' ) break;
+        printf(" Title : " );
+        gets(publishing.title);
+        printf(" Price : ");
+        gets(price);
+        publishing.price = atoi(price);
+        fwrite(&publishing,sizeof(publishing),1,fname);
+        if (ferror(fname)) {
+            printf(" Error in writing \n ");
+            return(fname);
+        }
+    }
+    fclose(fname);
+    return(fname);
+}
+
+void search(filetype fname){
+    char filename[10], code[7];
+    printf("File name : ");
+    gets(filename);
+    gets(filename);
+    printf("%s\n",filename) ;
+    if (( fname = fopen(filename,"r")) == NULL ) {
+        printf(" Error in opening file \n " );
+        return;
+        }
+    printf(" Code ( Enter = Quit ) : ");
+    gets(code);
+    while (fread(&publishing ,sizeof(publishing),1,fname) == 1){
+        if (ferror(fname) ) {
+            printf(" Error in reading file \n ");
+            return;
+        }
+        if (strcmp(publishing.code,code)==0){
+            printf(" code = %s \n",publishing.code);
+            printf(" Title = %s \n",publishing.title);
+            printf(" price = %d \n",publishing.price);
+            return;
+        }
+    }
+    printf(" Not found\n");
+}/
+
+
 int main(void) {
     filetype fp;
     int ch = 0;
-    while (ch!=3) {
+    while(1){
         ch = menu();
-    if (ch==1)
-        fp = CreateFile(fp);
-    else if (ch==2)
-        Display(fp);
-    else if (ch != 3)
-        printf("You must be input 1-3 only\n\n");
+        switch (ch) {
+            case 1: 
+                CreateFile(fp); 
+                break;
+            case 2: 
+                Display(fp);
+                break;
+            case 3: 
+                Insert(fp); 
+                break;
+            case 4:
+                search(fp);
+                break;
+            case 5: 
+                exit(0);
+            default: 
+                printf("Please enter 1-5 only\n");
+        }
     }
 }
