@@ -393,7 +393,7 @@ int main() {
                 break;
             case 6:
                 free(customer);
-                return 0;
+                exit(0);
             default:
                 printf("Input 1-6\n");
         }
