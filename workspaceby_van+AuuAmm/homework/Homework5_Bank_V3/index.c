@@ -106,26 +106,28 @@ idcustomer createcredit(idcustomer customer) {
                     int l;
                     printf("Credit limit\n1. 10000\n2. 50000\n3. 100000\n4. 500000\n5. 1000000\n-> ");
                     scanf("%d", &l);
-                    switch (l)
-                    {
-                    case 1:
-                        newnode->limit = 10000;
-                        break;
-                    case 2:
-                        newnode->limit = 50000;
-                        break;
-                    case 3:
-                        newnode->limit = 100000;
-                        break;
-                    case 4:
-                        newnode->limit = 500000;
-                        break;
-                    case 5:
-                        newnode->limit = 1000000;
-                        break;
-                    default:
-                        printf("Input 1-5\n");
-                    }
+                    do {
+                        switch (l)
+                        {
+                        case 1:
+                            newnode->limit = 10000;
+                            break;
+                        case 2:
+                            newnode->limit = 50000;
+                            break;
+                        case 3:
+                            newnode->limit = 100000;
+                            break;
+                        case 4:
+                            newnode->limit = 500000;
+                            break;
+                        case 5:
+                            newnode->limit = 1000000;
+                            break;
+                        default:
+                            printf("Input 1-5\n");
+                        }
+                    } while (l < 1 || l > 5);
                     printf("Enter Credit balance: ");
                     scanf("%f", &newnode->balance);
                 }
