@@ -50,7 +50,7 @@ idcustomer createcustomer(idcustomer customer){
 }
 
 idcustomer createcredit(idcustomer customer) {
-    idcredit newnode, tempcredit;
+    idcredit newnode, tempcredit, tempcredit2;
     idcustomer temp = customer;
     idcustomer temp2 = customer;
     char id[10], cid[10];
@@ -73,15 +73,15 @@ idcustomer createcredit(idcustomer customer) {
                 printf("Credit %d\n", temp->num + 1);
                 printf("Enter Credit ID: ");
                 scanf("%s", cid);
-                tempcredit = temp->credit;
+                temp2 = customer;
                 while (temp2 != NULL){
-                    tempcredit = temp2->credit;
-                    while (tempcredit != NULL){
-                        if (strcmp(tempcredit->creditid, cid) == 0){
+                    tempcredit2 = temp2->credit;
+                    while (tempcredit2 != NULL){
+                        if (strcmp(tempcredit2->creditid, cid) == 0){
                             printf("Credit ID already exists\n");
                             return customer;
                         }
-                        tempcredit = tempcredit->creditnext;
+                        tempcredit2 = tempcredit2->creditnext;
                     }
                     temp2 = temp2->next;
                 }
@@ -257,6 +257,7 @@ void money(idcustomer customer) {
                 tempcredit = tempcredit->creditnext;
             }
             printf("Credit ID not found\n");
+            return;
         }
         temp = temp->next;
     }
@@ -368,7 +369,7 @@ void testdisplay(idcustomer customer) {
 int main() {
     idcustomer customer = NULL;
     int k;
-    printf("Welcome to AuuJee&Amm Bank\n");
+    printf("Welcome to our bank!!\n");
     while (1) {
         printf("1. Create Customer\n2. Create Credit (not more than 10 accounts)\n3. Deposit/Withdraw\n4. Display your account\n5. Display all(admin)\n6. Exit\n-> ");
         scanf("%d", &k);
