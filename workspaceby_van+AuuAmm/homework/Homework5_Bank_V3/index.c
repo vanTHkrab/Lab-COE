@@ -317,7 +317,7 @@ void displayall(idcustomer customer){
     char admin[50];
     printf("Enter admin password: ");
     scanf("%s", admin);
-    if (strcmp(admin, "12") != 0) {
+    if (strcmp(admin,"COE") != 0) {
         printf("You are not admin\n");
         return;
     }
