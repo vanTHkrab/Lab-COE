@@ -19,12 +19,24 @@ int menu(){
     printf(" [1] Create file\n");
     printf(" [2] Display Data in file\n");
     printf(" [3] Stop running program\n\n");
-    // printf(" [4] Insert Data in file\n");
-    // printf(" [5] Search Data in file\n\n");
-    printf(" Your answer ");
+    printf(" Your answer: ");
     scanf("%d",&answer);
     return(answer);
 }
+
+// Ex:
+// int menu(){
+//     int answer;
+//     printf(" MENU\n");
+//     printf(" [1] Create file\n");
+//     printf(" [2] Display Data in file\n");
+//     printf(" [3] Insert Data in file\n");
+//     printf(" [4] Search Data in file\n");
+//     printf(" [5] Stop running program\n\n");
+//     printf(" Your answer: ");
+//     scanf("%d",&answer);
+//     return(answer);
+// }
 
 filetype CreateFile(filetype fname){
     char filename[10], price[6];
