@@ -23,7 +23,7 @@ struct datacustomer {
     idcustomer next;
 };
 
-idcustomer createcustomer(idcustomer customer) {
+idcustomer createcustomer(idcustomer customer){
     idcustomer newnode;
     idcustomer temp = customer;
     char id[10];
@@ -52,6 +52,7 @@ idcustomer createcustomer(idcustomer customer) {
 idcustomer createcredit(idcustomer customer) {
     idcredit newnode, tempcredit;
     idcustomer temp = customer;
+    idcustomer temp2 = customer;
     char id[10], cid[10];
     int k;
     if (temp->id == NULL){
@@ -73,12 +74,16 @@ idcustomer createcredit(idcustomer customer) {
                 printf("Enter Credit ID: ");
                 scanf("%s", cid);
                 tempcredit = temp->credit;
-                while (tempcredit != NULL){
-                    if (strcmp(tempcredit->creditid, cid) == 0){
-                        printf("Credit ID already exists\n");
-                        return customer;
+                while (temp2 != NULL){
+                    tempcredit = temp2->credit;
+                    while (tempcredit != NULL){
+                        if (strcmp(tempcredit->creditid, cid) == 0){
+                            printf("Credit ID already exists\n");
+                            return customer;
+                        }
+                        tempcredit = tempcredit->creditnext;
                     }
-                    tempcredit = tempcredit->creditnext;
+                    temp2 = temp2->next;
                 }
                 newnode = (idcredit)malloc(sizeof(struct datacredit));
                 temp->num++;
@@ -126,7 +131,7 @@ idcustomer createcredit(idcustomer customer) {
                 }
                 newnode->creditnext = temp->credit;
                 temp->credit = newnode;
-                printf("____________________________________________________\n");
+                if (i != k - 1) printf("--------------- Next Credit -----------------\n");
             }
             return customer;
         }
@@ -265,12 +270,9 @@ void display(idcustomer customer) {
         printf("No anyone customer\n");
         return;
     }
-    else if (temp->credit == NULL){
-        printf("No anyone credit\n");
-        return;
-    }
     printf("Enter Customer ID: ");
     scanf("%s", id);
+    int a = 0;
     while (temp != NULL){
         if (strcmp(temp->id, id) == 0){
             if (temp->num == 0){
@@ -295,11 +297,15 @@ void display(idcustomer customer) {
                 if (strcmp(tempcredit->type, "2") == 0){
                     printf("Credit Limit: %.2f\n", tempcredit->limit);
                 }
-                printf("------------------------------------\n");
+                a++;
+                if (tempcredit->creditnext != NULL) printf("--------------- Next Credit -----------------\n");
                 tempcredit = tempcredit->creditnext;
             }
         }
         temp = temp->next;
+    }
+    if (a != 0){
+        return;
     }
     printf("Customer ID not found\n");
     return;
@@ -319,7 +325,11 @@ void displayall(idcustomer customer){
         printf("No customers\n");
         return;
     }
+    int a = 0;
+    printf("_____________________ All Customer __________________________\n");
     while (temp != NULL){
+        a++;
+        printf("Customer %d\n", a);
         printf("Customer ID: %s\n", temp->id);
         printf("Customer Name: %s\n", temp->name);
         printf("Customer Lastname: %s\n\n", temp->lastname);
@@ -337,10 +347,10 @@ void displayall(idcustomer customer){
             if (strcmp(tempcredit->type, "2") == 0){
                 printf("Credit Limit: %.2f\n", tempcredit->limit);
             }
-            printf("------------------------------------\n");
+            if (tempcredit->creditnext != NULL) printf("---------------- Next Credit ------------------\n");
             tempcredit = tempcredit->creditnext;
         }
-        printf("____________________________________________________\n");
+        if (temp->next != NULL) printf("_____________________ Next Customer __________________________\n");
         temp = temp->next;
     }
     return;
@@ -353,7 +363,6 @@ void testdisplay(idcustomer customer) {
         temp = temp->next;
     }
 }
-
 int main() {
     idcustomer customer = NULL;
     int k;
@@ -386,7 +395,6 @@ int main() {
             default:
                 printf("Input 1-6\n");
         }
-        printf("\n");
+        printf("<-------------------------------------------------->\n");
     }
-    return;   
 }
