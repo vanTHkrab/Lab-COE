@@ -143,7 +143,7 @@ void search(filetype fname) {
         return;
     }
     free(filePath);
-    printf(" Code ( Enter = Quit ) : ");
+    printf(" Code: ");
     gets(code);
     int n = 0;
     while (fread(&publishing, sizeof(publishing), 1, fname) == 1) {
@@ -152,7 +152,6 @@ void search(filetype fname) {
             return;
         }
         if (strcmp(publishing.code, code) == 0) {
-            printf(" code = %s \n", publishing.code);
             printf(" Title = %s \n", publishing.title);
             printf(" price = %d \n\n", publishing.price);
             n++;
