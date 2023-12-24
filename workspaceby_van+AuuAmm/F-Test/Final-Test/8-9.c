@@ -70,13 +70,15 @@ int main(){
     int z;
     while (1)
     {
-        printf("Test: "); 
+        printf("Test (0 stop): "); 
         scanf("%d", &z);
         if (z == 0) break;
         number = getnum(number);
         Rnumber = getRnum(number, Rnumber);
         display(number);
         displayR(Rnumber);
+        free(number);
+        free(Rnumber);
     }
     return 0;
 }
