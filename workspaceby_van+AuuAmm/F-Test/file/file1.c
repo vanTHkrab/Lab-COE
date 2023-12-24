@@ -5,89 +5,103 @@
 
 typedef FILE *file;
 
-struct publishstruct {
-    char code[7];
-    char title[20];
-    int price;
-} publishing;
+struct struct_office
+{
+    char day[10], month[10], year[10];
+}office;
 
-file creatfile(file fname){
-    char filename[10];
-    printf("File name : ");
+struct data_infomath
+{
+    char id[10], name[30], lastname[30], height[10], weight[10];
+    struct struct_office office;
+}infomath;
+
+file create(file fname){
+    char filename[20];
+    printf("File name: ");
     gets(filename);
     gets(filename);
-    if((fname = fopen(filename, "w"))== NULL){
-        printf("Error in opening file\n");
-        return fname;
+    if ((fname = fopen(filename, "w")) == NULL){
+        printf("Error create file");
+        return 0;
     }
-    while(1){
-        printf("Code (Enter = Quit) : ");
-        gets(publishing.code);
-        if(publishing.code[0] == '\0') {
-            printf("\n\n");
-            break;
-        }
-        printf("Title : ");
-        gets(publishing.title);
-        printf("Price : ");
-        scanf("%d", &publishing.price);
-        fwrite(&publishing, sizeof(publishing), 1, fname);
+    while (1){
+        printf("ID (Enter to stop): ");
+        gets(infomath.id);
+        if (infomath.id[0] == '\0') break;
+        printf("Name: ");
+        gets(infomath.name);
+        printf("Lastname: ");
+        gets(infomath.lastname);
+        printf("Height: ");
+        gets(infomath.height);
+        printf("Weight: ");
+        gets(infomath.weight);
+        printf("Time \n");
+        printf("Day:");
+        gets(infomath.office.day);
+        printf("Month: ");
+        gets(infomath.office.month);
+        printf("Year: ");
+        gets(infomath.office.year);
+        fwrite(&infomath, sizeof(infomath), 1, fname);
         if (ferror(fname)){
-            printf("Error in writing\n");
+            printf("Error");
             return fname;
         }
     }
     fclose(fname);
     return fname;
 }
-void read(file fname){
-    char filename[10];
-    printf("File name : ");
+
+void display(file fname){
+    char filename[20];
+    printf("File name: ");
     gets(filename);
     gets(filename);
-    if((fname = fopen(filename, "r")) == NULL){
-        printf("Error in opening file\n");
+    if ((fname = fopen(filename, "r")) == NULL){
+        printf("Error to read");
         return;
     }
-    while(1) {
-        if (ferror(fname)) {
-            printf("Error in reading\n");
+    while(fread(&infomath, sizeof(infomath), 1, fname) == 1){
+        if (ferror(fname)){
+            printf("Error to read");
             return;
         }
-        fread(&publishing, sizeof(publishing), 1, fname);
-        if (feof(fname)) {
-            printf("End of file\n");
-            return;
+        else{
+            printf("ID: %s \n", infomath.id);
+            printf("Name: %s \n", infomath.name);
+            printf("Lastname: %s \n", infomath.lastname);
+            printf("Height: %s \n", infomath.height);
+            printf("Weight: %s \n", infomath.weight);
+            printf("Time: %s/%s/%s \n", infomath.office.day, infomath.office.month, infomath.office.year);
         }
-        printf("Code = %s\n", publishing.code);
-        printf("Title = %s\n", publishing.title);
-        printf("Price = %d\n", publishing.price);
     }
     fclose(fname);
 }
 
 int main(){
-    file fname;
-    int answer;
-    while(1){
-        printf("1. Create file\n");
-        printf("2. Read file\n");
-        printf("3. Exit\n");
-        printf("Your choice : ");
-        scanf("%d", &answer);
-        switch(answer){
+    file fp;
+    while (1){
+        int ch;
+        printf("1. Create file \n");
+        printf("2. Display file \n");
+        printf("3. Exit \n");
+        printf("Enter your choice: ");
+        scanf("%d", &ch);
+        switch (ch){
             case 1:
-                fname = creatfile(fname);
+                fp = create(fp);
                 break;
             case 2:
-                read(fname);
+                display(fp);
                 break;
             case 3:
-                return 0;
+                exit(0);
             default:
-                printf("Wrong choice\n");
+                printf("Enter again \n");
+                break;
         }
+        printf("\n\n");
     }
-    return 0;
-
 }

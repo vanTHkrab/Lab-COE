@@ -1,76 +1,107 @@
-#include<stdio.h>
+# include <stdio.h>
+# include <string.h>
+# include <stdlib.h>
+# include <conio.h>
 
-struct info {
-    char id[20] ;    
-    char surename[20] ;     
-    char lastname[20] ;
-} client ; 
-    
-int main () {
+typedef FILE *file;
 
-int p, i ;
-    printf("How Many People Do You Want, sir? : ") ;
-    scanf("%d",&p) ;
+struct struct_office
+{
+    char day[10], month[10], year[10];
+}office;
 
-for(i=0;i<p;i++) {
-    printf("Client (%d)\n",i+1) ;
-    printf("Enter Your ID : ") ;
-    scanf("%s",&client.id) ;
-    printf("\nEnter Your Surename : ") ;
-    scanf("%s",&client.surename) ;
-    printf("\nEnter Your Lastname : ") ;
-    scanf("%s",&client.lastname) ;
-    
-int n ;
-    printf("\nAccount Limit at 10") ;
-    printf("\nHow Many Account Do You Have : ") ;
-    scanf("%d",&n) ;
-int DAN[n] ;
-    int y[n] ;
-    int x[n] ;
-    int z[n] ;
-    int j=0 ;
-do {
-    if (n<=10) {
-    
-    for(i=0;i<n;i++) {
-        printf("\n(Account %d) Deposit Account Number : ",i+1) ;
-        scanf("%d",&DAN[i]) ;
-        printf("\nPress 1 Mean Savings Account\nPress 2 is Mean Daily Current Account\n") ;
-        scanf("%d",&x[i]) ;
-        
-        if(x[i]==1) {
-            printf("Account Deposit Balance : ") ;
-            scanf("%d",&y[j]) ;
-        } else if(x[i]==2) {
-            printf("\nAccount Deposit Balance : ") ;
-            scanf("%d",&y[j]) ;
-            printf("\nCredits Limit : ") ;
-            scanf("%d",&z[j]) ;
-        } j++ ;
-    } 
-    } else
-            printf("\nYour Account More than 10") ;
-            break ; 
-} while(1) ;   
-    printf("\n\n_____Your Information_____\n") ;
-    printf("\nClient ID : %s",client.id) ;
-    printf("\nClient Name : %s\t%s",client.surename, client.lastname) ;
-    printf("\nAmount of Account : %d",n) ;
-for(i=0;i<p;i++) {
-    for(i=0;i<n;i++) {
-        if(x[i]==1) {
-            printf("\n(Account %d) Deposit Account Number : %d",i+1, DAN[i]) ;
-            printf("\nRemaining a Deposit Balance : %d",y[i]) ;
-        } else if(x[i]==2) {
-            printf("\n(Account %d) Deposit Account Number : %d",i+1, DAN[i]) ;
-            printf("\nRemaining a Deposit Balance : %d",y[i]) ;
-            printf("\nRemaining a Credit Limit : %d",z[i]) ;
+struct data_infomath
+{
+    char id[100], name[100], lastname[100], high[100], weight[100];
+    struct struct_office office;
+}infomath;
+
+file create(file fname){
+    char filename[100];
+    printf("File name : ");
+    gets(filename);
+    gets(filename);
+    if ((fname = fopen(filename, "w")) == NULL){
+        printf("Error creating file");
+        return 0;
+    }
+    while (1){
+        printf("ID (Enter to stop): ");
+        gets(infomath.id);
+        if (strlen(infomath.id) == 0)break;
+        printf("Name : ");
+        gets(infomath.name);
+        printf("Lastname : ");
+        gets(infomath.lastname);
+        printf("High : ");
+        gets(infomath.high);
+        printf("Weight : ");
+        gets(infomath.weight);
+        printf("Time \n");
+        printf("Day : ");
+        gets(infomath.office.day);
+        printf("Month : ");
+        gets(infomath.office.month);
+        printf("Year : ");
+        gets(infomath.office.year);
+        fwrite(&infomath, sizeof(infomath), 1, fname);
+        if (ferror(fname)){
+            printf("Error writing file");
+            return 0;
         }
-        } 
+    }
+    fclose(fname);
+    return fname;
+}
+
+void display(file fname){
+    char filename[100];
+    printf("File name : ");
+    gets(filename);
+    gets(filename);
+    if ((fname = fopen(filename, "r")) == NULL){
+        printf("Error to read");
+        return;
+    }
+    while(fread(&infomath, sizeof(infomath), 1, fname)){
+        if (ferror(fname)){
+            printf("Error to read");
+            return;
+        }
+        else{
+        printf("ID : %s\n", infomath.id);
+        printf("Name : %s\n", infomath.name);
+        printf("Lastname : %s\n", infomath.lastname);
+        printf("High : %s\n", infomath.high);
+        printf("Weight : %s\n", infomath.weight);
+        printf("Time : %s/%s/%s\n", infomath.office.day, infomath.office.month, infomath.office.year);
+        }
+    }
+    fclose(fname);
+}
+
+int main(){
+    file fp;
+    int ch;
+    while (1){
+        printf("1. Create file\n");
+        printf("2. Display file\n");
+        printf("3. Exit\n");
+        printf("Enter your choice : ");
+        scanf("%d", &ch);
+        switch (ch){
+            case 1:
+                fp = create(fp);
+                break;
+            case 2:
+                display(fp);
+                break;
+            case 3:
+                exit(0);
+            default:
+                printf("Invalid choice\n");
+                break;
+        }
+        printf("\n\n");
     }
 }
-}
-
-
-
