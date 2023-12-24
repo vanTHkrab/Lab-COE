@@ -46,7 +46,7 @@ Rnum getRnum(num number, Rnum Rnumber){
 
 void display(num number){
     num temp = number;
-    printf("Not reverse: ")
+    printf("Not reverse: ");
     while (temp != NULL){
         printf("%d ", temp->n);
         temp = temp->next;
@@ -56,7 +56,7 @@ void display(num number){
 
 void displayR(Rnum Rnumber){
     Rnum temp = Rnumber;
-    printf("Reverse: ")
+    printf("Reverse: ");
     while (temp != NULL){
         printf("%d ", temp->Rn);
         temp = temp->next;
