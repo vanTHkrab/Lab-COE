@@ -65,20 +65,18 @@ void displayR(Rnum Rnumber){
 }
 
 int main(){
-    num number = NULL;
-    Rnum Rnumber = NULL;
     int z;
     while (1)
     {
         printf("Test (0 stop): "); 
         scanf("%d", &z);
         if (z == 0) break;
+        num number = NULL;
+        Rnum Rnumber = NULL;
         number = getnum(number);
         Rnumber = getRnum(number, Rnumber);
         display(number);
         displayR(Rnumber);
-        free(number);
-        free(Rnumber);
     }
     return 0;
 }
