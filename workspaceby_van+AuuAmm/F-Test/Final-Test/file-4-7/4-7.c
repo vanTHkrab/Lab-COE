@@ -107,8 +107,8 @@ int main(){
     file fname;
     while(1){
         printf("Func (gets) Have many bugs -_- .\n");
-        printf("1. Input data Book\n");
-        printf("2. Create file\n");
+        printf("1. Create file\n");
+        printf("2. Input data Book\n");
         printf("3. Input data Book to file\n");
         printf("4. Display data Book\n");
         printf("5. Search\n");
@@ -117,10 +117,10 @@ int main(){
         scanf("%d", &n);
         switch(n){
             case 1:
-                getdata();
+                fname = create(fname);
                 break;
             case 2:
-                fname = create(fname);
+                getdata();
                 break;
             case 3:
                 fname = inputdatabook(fname);
