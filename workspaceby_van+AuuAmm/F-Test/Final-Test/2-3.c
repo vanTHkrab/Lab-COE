@@ -1,8 +1,10 @@
-#include <stdio.h>
+# include <stdio.h>
+# include <stdlib.h>
 
 void getdata(float *money, float *AIR, int *time) {
-    printf("Money: ");
+    printf("Money(Enter 0 to stop): ");
     scanf("%f", money);
+    if (*money == 0) exit(0);
     printf("Annual interest rate(%%): ");
     scanf("%f", AIR);
     printf("Time: ");
@@ -20,8 +22,10 @@ void display(float sum) {
 int main() {
     float money, AIR, sum;
     int time;
-    getdata(&money, &AIR, &time);
-    math(money, AIR, time, &sum);
-    display(sum);
+    while(1){
+        getdata(&money, &AIR, &time);
+        math(money, AIR, time, &sum);
+        display(sum);
+    }
     return 0;
 }
