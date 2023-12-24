@@ -106,7 +106,7 @@ int main(){
     int n;
     file fname;
     while(1){
-        printf("Func (gets) Have many bugs -_- .\n");
+        printf("Func (gets()) Have many bugs -_- .\n");
         printf("1. Create file\n");
         printf("2. Input data Book\n");
         printf("3. Input data Book to file\n");
