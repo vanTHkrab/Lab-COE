@@ -60,6 +60,7 @@ file inputdatabook(file fname){
     fwrite(&b, sizeof(b), 1, fname);
     b = (struct databook){0};
     fclose(fname);
+    printf("Input data book success.\n");
     return fname;
 }
 
