@@ -24,7 +24,7 @@ void getdata(){
     scanf("%s", b.author);
     printf("Enter publisher: ");
     scanf("%s", b.publisher);
-    printf("Enter Booknum: ");
+    printf("Enter Printed time: ");
     scanf("%s", b.Booknum);
     printf("Enter year: ");
     scanf("%d", &b.year);
@@ -76,7 +76,7 @@ void displaydatabook(file fname){
         printf("Name: %s\n", b.name);
         printf("Author: %s\n", b.author);
         printf("Publisher: %s\n", b.publisher);
-        printf("Booknum: %s\n", b.Booknum);
+        printf("Printed time: %s\n", b.Booknum);
         printf("Year: %d\n", b.year);
         printf("Amount of book: %d\n", b.num);
     }
