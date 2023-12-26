@@ -18,6 +18,7 @@ num getnum(num number){
     int a;
     printf("Enter num: ");
     scanf("%d", &a);
+    if (a == 0) exit(0);
     if (a < 1){
         return number;
     }
@@ -68,9 +69,6 @@ int main(){
     int z;
     while (1)
     {
-        printf("Test (0 stop): "); 
-        scanf("%d", &z);
-        if (z == 0) break;
         num number = NULL;
         Rnum Rnumber = NULL;
         number = getnum(number);

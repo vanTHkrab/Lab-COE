@@ -28,7 +28,7 @@ void getdata(){
     scanf("%s", b.Booknum);
     printf("Enter year: ");
     scanf("%d", &b.year);
-    printf("Enter num: ");
+    printf("Enter amount of book: ");
     scanf("%d", &b.num);
 }
 
@@ -46,6 +46,11 @@ file create(file fname){
 
 file inputdatabook(file fname){
     char name[30];
+    if (strcmp(b.BookID, "") == 0) {
+        printf("Enter data book.\n");
+        getdata();
+        printf("<---------------------->\n");
+    }
     printf("Enter file name: ");
     scanf("%s", name);
     if((fname = fopen(name, "a")) == NULL){
@@ -53,6 +58,7 @@ file inputdatabook(file fname){
         return NULL;
     }
     fwrite(&b, sizeof(b), 1, fname);
+    b = (struct databook){0};
     fclose(fname);
     return fname;
 }
@@ -72,7 +78,7 @@ void displaydatabook(file fname){
         printf("Publisher: %s\n", b.publisher);
         printf("Booknum: %s\n", b.Booknum);
         printf("Year: %d\n", b.year);
-        printf("Num: %d\n", b.num);
+        printf("Amount of book: %d\n", b.num);
     }
     fclose(fname);
 }
@@ -136,7 +142,7 @@ int main(){
             default:
                 printf("Enter again.\n");
         }
-        printf("<---------------------->\n")
+        printf("<---------------------->\n");
     }
     return 0;
 }
